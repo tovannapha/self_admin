@@ -9,6 +9,7 @@ import { RestaurantAddComponent } from './restaurant-add/restaurant-add.componen
 import { RestaurantTypeComponent } from './restaurant-type/restaurant-type.component';
 
 import { routing } from './restaurant.routing';
+import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { routing } from './restaurant.routing';
         RestaurantComponent,
         RestaurantHomeComponent,
         RestaurantAddComponent,
-        RestaurantTypeComponent
+        RestaurantTypeComponent,
+        RestaurantDetailComponent
     ]
 })
 export class RestaurantModule { }
