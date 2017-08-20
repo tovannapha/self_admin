@@ -11,21 +11,27 @@
       </div>
       <div class="form-group col-sm-6">
         <label for="exampleInputtext1">ປະເພດຮ້ານ</label>
-        <input type="text" class="form-control" id="exampleInputtext2" placeholder="ປະເພດຮ້ານ"  [(ngModel)]="retaurant_type">
+        <select class="form-control" id="exampleSelect1"  [(ngModel)]="retaurant_type">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
       </div>
       <div class="form-group col-sm-6">
         <label for="exampleInputtext1">ໂທລະສັບ</label>
-        <input type="text" class="form-control" id="exampleInputtext2" placeholder="ໂທລະສັບ"  [(ngModel)]="retaurant_phone">
+        <input type="text" class="form-control" id="exampleInputtext2" placeholder="ໂທລະສັບ" [(ngModel)]="retaurant_phone">
       </div>
       <div class="form-group col-sm-12">
         <div class="card">
-          <div class="card-header"  style="color:#2c3e50">
+          <div class="card-header" style="color:#2c3e50">
             ທີ່ຢູ່ຮ້ານ
           </div>
           <div class="card-body  form-inline">
             <div class="form-group col-sm-12">
               <label for="exampleInputtext1">ທີ່ຢູ່ຮ້ານ</label>
-              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ທີ່ຢູ່ຮ້ານ"  [(ngModel)]="retaurant_address">
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ທີ່ຢູ່ຮ້ານ" [(ngModel)]="retaurant_address">
             </div>
             <div class="form-group col-sm-6">
               <label for="exampleInputtext1">ເສັ້ນແວງ</label>
@@ -33,7 +39,7 @@
             </div>
             <div class="form-group col-sm-6">
               <label for="exampleInputtext1">ເສັ້ນຂະໜານ</label>
-              <input type="text" class="form-control" id="exampleInputtext2" placeholder="Y"  [(ngModel)]="retaurant_location_y">
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="Y" [(ngModel)]="retaurant_location_y">
             </div>
           </div>
         </div>
@@ -80,7 +86,7 @@
           <div class="card-body  form-inline">
             <div class="form-group col-sm-6">
               <label for="exampleInputtext1">ມື້ເປີດກິດຈະການ</label>
-              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ມື້ເປີດກິດຈະການ"  [(ngModel)]="retaurant_operation_days_days">
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ມື້ເປີດກິດຈະການ" [(ngModel)]="retaurant_operation_days_days">
             </div>
             <div class="form-group col-sm-6">
               <label for="exampleInputtext1">ໃຊ້ບັດເຄຼດິດໄດ້ບໍ</label>

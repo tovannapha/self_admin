@@ -5,6 +5,11 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
+
+import { ApolloClient, createNetworkInterface } from 'apollo-client';
+import { ApolloModule } from 'apollo-angular';
+import { Apollo } from 'apollo-angular';
+
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -16,6 +21,17 @@ import { AppState, InternalStateType } from './app.service';
 import { GlobalState } from './global.state';
 import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
+
+// Create the client as outlined above
+const client = new ApolloClient({
+  networkInterface: createNetworkInterface({
+    uri: 'http://localhost:3000/graphql'
+  }),
+});
+
+export function provideClient(): ApolloClient {
+  return client;
+}
 
 
 // Application wide providers
@@ -44,6 +60,7 @@ export type StoreType = {
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    ApolloModule.forRoot(provideClient),
     NgaModule.forRoot(),
     NgbModule.forRoot(),
     PagesModule,

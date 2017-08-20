@@ -1,3 +1,22 @@
-<h3>
-  restaurant-home works!
-</h3>
+<div class="horizontal-scroll">
+  <table class="table table-condensed  table-hover">
+    <thead>
+    <tr>
+      <th class="table-id">#</th>
+      <th>ຊື່ຮ້ານ</th>
+      <th>ເບີໂທ</th>
+      <th>ທີ່ຢູ່</th>
+      <th>ສະຖານະ</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of restaurants; let i = index" (click)="goToDetail()" style="cursor: pointer">
+      <td class="table-id">{{ i + 1  }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.phone }}</td>
+      <td>{{ item.address }}</td>
+      <td><button ngClass="{status-button btn btn-xs btn-{{ item.status }}">{{ item.status }}</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
