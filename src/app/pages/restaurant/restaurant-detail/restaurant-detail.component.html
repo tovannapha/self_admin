@@ -1,3 +1,35 @@
-<p>
-  restaurant-detail works!
-</p>
+<h1>
+  ໂປໄຟຂອງ: ຮ້ານ{{restaurant.name}}
+</h1>
+
+<div class="row">
+  <div class="col-sm-9">
+    <div class="card">
+      <div class="card-header" style="color:#2c3e50">
+        ຂໍ້ມູນພື້ນຖານ
+      </div>
+      <div class="card-body">
+        <div class="form-group col-sm-12">
+          <label for="exampleInputtext1">ທີ່ຢູ່ຮ້ານ</label>
+          <input type="text" class="form-control" id="exampleInputtext2" placeholder="ທີ່ຢູ່ຮ້ານ" [(ngModel)]="retaurant_address">
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="exampleInputtext1">ເສັ້ນແວງ</label>
+          <input type="text" class="form-control" id="exampleInputtext2" placeholder="X" [(ngModel)]="retaurant_location_x">
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="exampleInputtext1">ເສັ້ນຂະໜານ</label>
+          <input type="text" class="form-control" id="exampleInputtext2" placeholder="Y" [(ngModel)]="retaurant_location_y">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body ">
+        <img src="assets/images/celtic.gif" alt="" style="width:100%;border-radius:5px 5px 5px 5px;">
+      </div>
+    </div>
+  </div>
+</div>
