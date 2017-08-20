@@ -10,6 +10,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'coupon-home', pathMatch: 'full' },
       { path: 'coupon-home', component: CouponHomeComponent },
+      { path: 'coupon-add', component: CouponHomeComponent },
+      { path: 'coupon-type', component: CouponHomeComponent },
     ] 
   }
 ];
