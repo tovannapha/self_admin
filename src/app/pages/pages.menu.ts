@@ -6,7 +6,7 @@ export const PAGES_MENU = [
         path: 'dashboard',
         data: {
           menu: {
-            title: 'general.menu.dashboard',
+            title: 'ໜ້າຫຼັກ',
             icon: 'ion-android-home',
             selected: false,
             expanded: false,
@@ -18,7 +18,7 @@ export const PAGES_MENU = [
         path: 'editors',
         data: {
           menu: {
-            title: 'general.menu.editors',
+            title: 'ຜູ້ໃຊ້',
             icon: 'ion-edit',
             selected: false,
             expanded: false,
@@ -30,7 +30,23 @@ export const PAGES_MENU = [
             path: 'ckeditor',
             data: {
               menu: {
-                title: 'general.menu.ck_editor',
+                title: 'ຈັດການຜູ້ໃຊ້',
+              }
+            }
+          },
+          {
+            path: 'ckeditor',
+            data: {
+              menu: {
+                title: 'ເພີ່ມຜູ້ໃຊ້',
+              }
+            }
+          },
+          {
+            path: 'ckeditor',
+            data: {
+              menu: {
+                title: 'ບລອກຜູ້ໃຊ້',
               }
             }
           }
@@ -40,7 +56,7 @@ export const PAGES_MENU = [
         path: 'components',
         data: {
           menu: {
-            title: 'general.menu.components',
+            title: 'ຮ້ານອາຫານ',
             icon: 'ion-gear-a',
             selected: false,
             expanded: false,
@@ -49,10 +65,26 @@ export const PAGES_MENU = [
         },
         children: [
           {
-            path: 'treeview',
+            path: 'charts',
             data: {
               menu: {
-                title: 'general.menu.tree_view',
+                title: 'ຈັດການຮ້ານອາຫານ',
+              }
+            }
+          },
+          {
+            path: 'charts',
+            data: {
+              menu: {
+                title: 'ເພີ່ມຮ້ານອາຫານ',
+              }
+            }
+          },
+          {
+            path: 'charts',
+            data: {
+              menu: {
+                title: 'ປະເພດຮ້ານອາຫານ',
               }
             }
           }
@@ -62,7 +94,7 @@ export const PAGES_MENU = [
         path: 'charts',
         data: {
           menu: {
-            title: 'general.menu.charts',
+            title: 'ຈັດການອີເວັນ',
             icon: 'ion-stats-bars',
             selected: false,
             expanded: false,
@@ -84,7 +116,7 @@ export const PAGES_MENU = [
         path: 'ui',
         data: {
           menu: {
-            title: 'general.menu.ui_features',
+            title: 'ເມນູ',
             icon: 'ion-android-laptop',
             selected: false,
             expanded: false,
@@ -104,7 +136,7 @@ export const PAGES_MENU = [
             path: 'buttons',
             data: {
               menu: {
-                title: 'general.menu.buttons',
+                title: 'ລາຍການສັ່ງອາຫານ',
               }
             }
           },
@@ -120,7 +152,7 @@ export const PAGES_MENU = [
             path: 'modals',
             data: {
               menu: {
-                title: 'general.menu.modals',
+                title: 'ຄູປອງ',
               }
             }
           },
@@ -136,7 +168,7 @@ export const PAGES_MENU = [
             path: 'grid',
             data: {
               menu: {
-                title: 'general.menu.grid',
+                title: 'ລີວິວ',
               }
             }
           },
@@ -146,7 +178,7 @@ export const PAGES_MENU = [
         path: 'forms',
         data: {
           menu: {
-            title: 'general.menu.form_elements',
+            title: 'ເລດຮ້ານ',
             icon: 'ion-compose',
             selected: false,
             expanded: false,
@@ -176,7 +208,7 @@ export const PAGES_MENU = [
         path: 'tables',
         data: {
           menu: {
-            title: 'general.menu.tables',
+            title: 'ຈັດການລາຍຈ່າຍ',
             icon: 'ion-grid',
             selected: false,
             expanded: false,
