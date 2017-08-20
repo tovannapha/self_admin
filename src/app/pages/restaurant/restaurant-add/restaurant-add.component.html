@@ -1,18 +1,103 @@
-  <form class="row form-inline">
-    <div class="form-group col-sm-3">
-      <input type="text" class="form-control" id="exampleInputName2" placeholder="ຊື່ຮ້ານ">
-    </div>
-    <div class="form-group col-sm-3">
-      <input type="email" class="form-control" id="exampleInputEmail2" placeholder="ປະເພດຮ້ານ">
-    </div>
-    <div class="form-group col-sm-3">
-      <input type="email" class="form-control" id="exampleInputEmail2" placeholder="ທີ່ຢູ່ຮ້ານ">
-    </div>
-    <div class="form-group">
-      <div class="checkbox">
+<div class="card">
+  <div class="card-header">
+    <h3 style="color:#2c3e50">ລາຍລະອຽດ</h3>
+  </div>
+  <div class="card-body">
+
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <label for="exampleInputtext1">ຊື່ຮ້ານ</label>
+        <input type="text" class="form-control" id="exampleInputName2" placeholder="ຊື່ຮ້ານ" [(ngModel)]="retaurant_name">
       </div>
+      <div class="form-group col-sm-6">
+        <label for="exampleInputtext1">ປະເພດຮ້ານ</label>
+        <input type="text" class="form-control" id="exampleInputtext2" placeholder="ປະເພດຮ້ານ"  [(ngModel)]="retaurant_type">
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="exampleInputtext1">ໂທລະສັບ</label>
+        <input type="text" class="form-control" id="exampleInputtext2" placeholder="ໂທລະສັບ"  [(ngModel)]="retaurant_phone">
+      </div>
+      <div class="form-group col-sm-12">
+        <div class="card">
+          <div class="card-header"  style="color:#2c3e50">
+            ທີ່ຢູ່ຮ້ານ
+          </div>
+          <div class="card-body  form-inline">
+            <div class="form-group col-sm-12">
+              <label for="exampleInputtext1">ທີ່ຢູ່ຮ້ານ</label>
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ທີ່ຢູ່ຮ້ານ"  [(ngModel)]="retaurant_address">
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="exampleInputtext1">ເສັ້ນແວງ</label>
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="X" [(ngModel)]="retaurant_location_x">
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="exampleInputtext1">ເສັ້ນຂະໜານ</label>
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="Y"  [(ngModel)]="retaurant_location_y">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 style="color:#2c3e50">ຄວາມຈຸຂອງຮ້ານ</h3>
+          </div>
+          <div class="card-body  form-inline">
+            <div class="form-group col-sm-6">
+              <label for="exampleInputtext1">ໂຕະ</label>
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ໂຕະ" [(ngModel)]="retaurant_tables">
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="exampleInputtext1">ທີ່ນັ່ງ</label>
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ທີ່ນັ່ງ" [(ngModel)]="retaurant_seats">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 style="color:#2c3e50">ບ່ອນຈອດລົດ</h3>
+          </div>
+          <div class="card-body  form-inline">
+            <div class="form-group col-sm-6">
+              <label for="exampleInputtext1">ຈັກຄັນ</label>
+              <input type="text" class="form-control" id="exampleInputtext2" [(ngModel)]="retaurant_parkinglot_capacity">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 style="color:#2c3e50">ຂໍ້ມູນອື່ນໆ</h3>
+          </div>
+          <div class="card-body  form-inline">
+            <div class="form-group col-sm-6">
+              <label for="exampleInputtext1">ມື້ເປີດກິດຈະການ</label>
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ມື້ເປີດກິດຈະການ"  [(ngModel)]="retaurant_operation_days_days">
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="exampleInputtext1">ໃຊ້ບັດເຄຼດິດໄດ້ບໍ</label>
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="X">
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="exampleInputtext1">ຈຸດພິເສດອື່ນໆ</label>
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ຈຸດພິເສດອື່ນໆ">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </div>
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary">Send invitation</button>
+    <div class="form-group text-center">
+      <button type="submit" class="btn btn-primary" (click)="add_restaurant()"><i  class="ion-android-add"></i> ເພີ່ມຮ້ານອາຫານ</button>
     </div>
-  </form>
+  </div>
+</div>
