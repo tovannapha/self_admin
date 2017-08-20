@@ -1,6 +1,6 @@
 export const PAGES_MENU = [
   {
-    path: 'pages',
+    path: 'admin',
     children: [
       {
         path: 'dashboard',
@@ -15,11 +15,11 @@ export const PAGES_MENU = [
         }
       },
       {
-        path: 'editors',
+        path: 'user',
         data: {
           menu: {
             title: 'ຜູ້ໃຊ້',
-            icon: 'ion-edit',
+            icon: 'ion-person',
             selected: false,
             expanded: false,
             order: 100,
@@ -27,32 +27,111 @@ export const PAGES_MENU = [
         },
         children: [
           {
-            path: 'ckeditor',
+            path: 'user-home',
             data: {
               menu: {
                 title: 'ຈັດການຜູ້ໃຊ້',
+                icon: 'ion-person',
               }
             }
           },
           {
-            path: 'ckeditor',
+            path: 'user-add',
             data: {
               menu: {
                 title: 'ເພີ່ມຜູ້ໃຊ້',
+                icon: 'ion-person-add',
               }
             }
           },
           {
-            path: 'ckeditor',
+            path: 'user-block',
             data: {
               menu: {
                 title: 'ບລອກຜູ້ໃຊ້',
+                icon: 'ion-ios-personadd-outline',
               }
             }
           }
         ]
       },
       {
+        path: 'restaurant',
+        data: {
+          menu: {
+            title: 'ຮ້ານອາຫານ',
+            icon: 'ion-beer',
+            selected: false,
+            expanded: false,
+            order: 100,
+          }
+        },
+        children: [
+          {
+            path: 'restaurant-home',
+            data: {
+              menu: {
+                title: 'ຈັດການຮ້ານອາຫານ',
+              }
+            }
+          },
+          {
+            path: 'restaurant-add',
+            data: {
+              menu: {
+                title: 'ເພີ່ມຮ້ານອາຫານ',
+              }
+            }
+          },
+          {
+            path: 'restaurant-type',
+            data: {
+              menu: {
+                title: 'ປະເພດຮ້ານອາຫານ',
+              }
+            }
+          }
+        ]
+      },
+      {
+        path: 'event',
+        data: {
+          menu: {
+            title: 'ອິເວັນ',
+            icon: 'ion-ribbon-b',
+            selected: false,
+            expanded: false,
+            order: 100,
+          }
+        },
+        children: [
+          {
+            path: 'event-home',
+            data: {
+              menu: {
+                title: 'ຈັດການອີເວັນ',
+              }
+            }
+          },
+          {
+            path: 'event-add',
+            data: {
+              menu: {
+                title: 'ເພີ່ມອີເວັນ',
+              }
+            }
+          },
+          {
+            path: 'event-type',
+            data: {
+              menu: {
+                title: 'ປະເພດອີເວັນ',
+              }
+            }
+          }
+        ]
+      },
+      /* {
         path: 'components',
         data: {
           menu: {
@@ -240,14 +319,14 @@ export const PAGES_MENU = [
               }
             }
           },
-           {
-             path: 'hottables',
-             data: {
-               menu: {
-                 title: 'Hot Tables',
-               }
-             }
-           }
+          {
+            path: 'hottables',
+            data: {
+              menu: {
+                title: 'Hot Tables',
+              }
+            }
+          }
         ]
       },
       {
@@ -370,6 +449,19 @@ export const PAGES_MENU = [
         ]
       },
       {
+        path: 'new',  // path for our page
+        data: { // custom menu declaration
+          menu: {
+            title: 'ໜ້າໃໝ່', // menu title
+            icon: 'ion-android-home', // menu icon
+            pathMatch: 'prefix', // use it if item children not displayed in menu
+            selected: false,
+            expanded: false,
+            order: 0
+          }
+        }
+      }, */
+      /* {
         path: '',
         data: {
           menu: {
@@ -380,7 +472,7 @@ export const PAGES_MENU = [
             target: '_blank'
           }
         }
-      }
+      } */
     ]
   }
 ];

@@ -12,7 +12,7 @@ h1.al-title {
   width: auto;
   margin: 0;
   padding: 0;
-  font-size: 24px;
+  font-size: 28px;
   text-transform: uppercase;
   opacity: 0.9;
 }
@@ -45,3 +45,11 @@ h1.al-title {
     font-size: 19px;
   }
 }
+
+    @import url(http://fonts.googleapis.com/earlyaccess/laosanspro.css);
+    @import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
+    @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+    * {
+      font-family: Saysettha OT, "Lao Sans Pro", Ubuntu, Saysettha MX, Phetsarath OT, Helvetica, Arial, sans-serif;
+    }
+
