@@ -16,7 +16,7 @@ const routes: Routes = [
       { path: 'restaurant-add', component: RestaurantAddComponent },
       { path: 'restaurant-type', component: RestaurantTypeComponent },
       { path: 'restaurant-detail/:id', component: RestaurantDetailComponent }
-    ] 
+    ]
   }
 ];
 
