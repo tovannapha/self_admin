@@ -11,6 +11,7 @@ import { RestaurantTypeComponent } from './restaurant-type/restaurant-type.compo
 
 import { routing } from './restaurant.routing';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
+import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail
         RestaurantHomeComponent,
         RestaurantAddComponent,
         RestaurantTypeComponent,
-        RestaurantDetailComponent
+        RestaurantDetailComponent,
+        RestaurantMenuComponent
     ]
 })
 export class RestaurantModule { }
