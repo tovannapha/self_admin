@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
@@ -6,6 +6,8 @@ import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
 import 'rxjs/add/operator/switchMap';
+
+import * as GoogleMapsLoader from 'google-maps';
 
 
 @Component({
@@ -16,22 +18,23 @@ import 'rxjs/add/operator/switchMap';
 export class RestaurantDetailComponent implements OnInit {
 
   id: String;
-  restaurant:any;
+  restaurant: any;
 
   constructor(
-     private apollo: Apollo,
-     private router: Router,
-     private activatedRoute: ActivatedRoute,
+    private apollo: Apollo,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private _elementRef: ElementRef,
   ) { }
 
   ngOnInit() {
 
     this.activatedRoute.params.subscribe((params) => {
-        this.id = params.id;
-      });
+      this.id = params.id;
+    });
 
 
-      const queryinfo = gql`
+    const queryinfo = gql`
           query  ($id:ID!){
             restaurant(id:$id) {
               id
@@ -47,11 +50,24 @@ export class RestaurantDetailComponent implements OnInit {
       variables: {
         id: this.id
       }
-    }).subscribe((x:any) => {
+    }).subscribe((x: any) => {
       //var xxx = data;
       this.restaurant = x.data.restaurant
       console.log(x.data.restaurant)
-    });  
+    });
+  }
+
+  ngAfterViewInit() {
+    let el = this._elementRef.nativeElement.querySelector('.google-maps');
+
+    // TODO: do not load this each time as we already have the library after first attempt
+    GoogleMapsLoader.load((google) => {
+      new google.maps.Map(el, {
+        center: new google.maps.LatLng(44.5403, -78.5463),
+        zoom: 8,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+    });
   }
 
 

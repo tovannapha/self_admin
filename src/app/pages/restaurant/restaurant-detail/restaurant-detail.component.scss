@@ -1,8 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-    @import url(http://fonts.googleapis.com/earlyaccess/laosanspro.css);
-    @import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
-    @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-    * {
-      font-family: Saysettha OT, "Lao Sans Pro", Ubuntu, Saysettha MX, Phetsarath OT, Helvetica, Arial, sans-serif;
-    }
+@import url(http://fonts.googleapis.com/earlyaccess/laosanspro.css);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+* {
+    font-family: Saysettha OT, "Lao Sans Pro", Ubuntu, Saysettha MX, Phetsarath OT, Helvetica, Arial, sans-serif;
+}
+
+.google-maps {
+    width: 100%;
+    height: calc(100vh - 283px);
+}

@@ -1,5 +1,5 @@
 <h1>
-  ໂປໄຟຂອງ: ຮ້ານ{{restaurant.name}}
+  ໂປໄຟຂອງ: ຮ້ານ{{restaurant?.name}}
 </h1>
 
 <div class="row">
@@ -33,3 +33,36 @@
     </div>
   </div>
 </div>
+
+<div class="card">
+  <div class="card-header float-right" style="color:#2c3e50">
+    <p>ຂໍ້ມູນພື້ນຖານ</p> <button type="button" class="btn btn-primary" (click)="goToMenu()" style="position:absolute; right:10px; top:8px;">ຈັດການເມນູ</button>
+  </div>
+  <div class="card-body">
+    <table class="table table-condensed  table-hover">
+      <thead>
+        <tr>
+          <th class="table-id">#</th>
+          <th>ຮູບພາບ</th>
+          <th>ຊື່ເມນູ</th>
+          <th>ລາຄາ</th>
+          <th>ຈັດການ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of [1,2,3,4,5,6]; let i = index" style="cursor: pointer">
+          <td class="table-id">{{ i + 1 }}</td>
+          <td ><img src="assets/images/celtic.gif" alt="" style="width:30%;border-radius:10px 10px 10px 10px; padding:5px;"></td>
+          <td>ປີ້ງປານິນ</td>
+          <td>30,000 ກີບ</td>
+          <td><button type="button" class="btn btn-default" (click)="goToMenu()">ແກ້ໄຂ</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<ba-card cardTitle="ແຜນທີ່ຮ້ານ">
+  <div class="google-maps"></div>
+</ba-card>

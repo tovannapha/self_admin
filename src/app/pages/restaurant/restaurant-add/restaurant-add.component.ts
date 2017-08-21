@@ -56,14 +56,14 @@ export class RestaurantAddComponent implements OnInit {
       `;
 
 
-   /*  this.apollo.mutate({
+     this.apollo.mutate({
       mutation: submitRepository,
       variables : {
         name: this.retaurant_name
       }
     }).subscribe(({ data }) => {
       console.log(data)
-    }); */
+    }); 
   }
 
 }

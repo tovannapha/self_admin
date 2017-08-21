@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { Component, OnInit, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
@@ -11,7 +11,7 @@ import gql from 'graphql-tag';
 })
 export class RestaurantHomeComponent implements OnInit {
 
-  restaurants:any;
+  restaurants: any;
 
   constructor(
     private apollo: Apollo,
@@ -20,32 +20,32 @@ export class RestaurantHomeComponent implements OnInit {
 
   ngOnInit() {
 
-  const queryinfo = gql`
-  query  {
-    restaurants {
-      id
-      name
-    }
-  }
-`;
+    const queryinfo = gql`
+      query  {
+        restaurants {
+          id
+          name
+        }
+      }
+    `;
 
 
 
     this.apollo.watchQuery({
       query: queryinfo
-    }).subscribe((x:any) => {
+    }).subscribe((x: any) => {
       //var xxx = data;
       this.restaurants = x.data.restaurants
       console.log(x.data.restaurants)
-    }); 
+    });
   }
 
 
-  goToDetail(item){
-    this.router.navigate(['/admin/restaurant/restaurant-detail/',item.id ]);
+  goToDetail(item) {
+    this.router.navigate(['/admin/restaurant/restaurant-detail/', item.id]);
   }
 
-  goToMenu(){
+  goToMenu() {
     console.log("GO TO MENU")
   }
 
