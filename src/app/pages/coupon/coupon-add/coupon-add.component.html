@@ -1,0 +1,57 @@
+<div class="card">
+  <div class="card-header">
+    <h3 style="color:#2c3e50">ລາຍລະອຽດ</h3>
+  </div>
+  <div class="card-body">
+
+    <div class="row">
+      <div class="form-group col-sm-12">
+        <label for="exampleInputtext1">ຊື່ໂປໂມເຊີນ</label>
+        <input type="text" class="form-control" id="exampleInputName2" placeholder="ຊື່ໂປໂມເຊີນ" [(ngModel)]="coupon.name">
+      </div>
+      <div class="form-group col-sm-12">
+        <label for="exampleInputtext1">ລາຍລະອຽດໂປໂມເຊີນ</label>
+        <input type="textarea" class="form-control" id="exampleInputtext2" placeholder="ລາຍລະອຽດໂປໂມເຊີນ"  [(ngModel)]="coupon.description">
+      </div>
+      <div class="form-group col-sm-12">
+        <label for="exampleInputtext1">ປະເພດໂປໂມເຊີນ</label>
+        <input type="text" class="form-control" id="exampleInputtext2" placeholder="ປະເພດໂປໂມເຊີນ"  [(ngModel)]="coupon.type">
+      </div>
+      <div class="form-group col-sm-12">
+        <div class="card">
+          <div class="card-header"  style="color:#2c3e50">
+            ໄລຍະເວລາໂປໂມເຊິນ
+          </div>
+          <div class="card-body  form-inline">
+            <div class="form-group col-sm-6">
+              <label for="exampleInputtext1">ເລີ່ມມື້ໃດ</label>
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="From" [(ngModel)]="coupon.fromdate">
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="exampleInputtext1">ຫາມື້ໃດ</label>
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="To"  [(ngModel)]="coupon.todate">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 style="color:#2c3e50">ໄອດີຮ້ານ</h3>
+          </div>
+          <div class="card-body  form-inline">
+            <div class="form-group col-sm-12">
+              <label for="exampleInputtext1">ໄອດີຮ້ານ</label>
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ໄອດີຮ້ານ" [(ngModel)]="coupon.retaurant_id">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group text-center">
+      <button type="submit" class="btn btn-primary" (click)="add_coupon()"><i  class="ion-android-add"></i> ເພີ່ມໂປໂມເຊີນ</button>
+    </div>
+  </div>
+</div>

@@ -151,22 +151,22 @@ export const PAGES_MENU = [
               }
             }
           },
-          // {
-          //   path: 'event-add',
-          //   data: {
-          //     menu: {
-          //       title: 'ເພີ່ມອີເວັນ',
-          //     }
-          //   }
-          // },
-          // {
-          //   path: 'event-type',
-          //   data: {
-          //     menu: {
-          //       title: 'ປະເພດອີເວັນ',
-          //     }
-          //   }
-          // }
+          {
+            path: 'coupon-add',
+            data: {
+              menu: {
+                title: 'ເພີ່ມ coupon',
+              }
+            }
+          },
+          {
+            path: 'coupon-type',
+            data: {
+              menu: {
+                title: 'ປະເພດ coupon',
+              }
+            }
+          }
         ]
       },
       /* {
