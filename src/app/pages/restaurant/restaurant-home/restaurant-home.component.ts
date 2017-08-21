@@ -29,14 +29,9 @@ export class RestaurantHomeComponent implements OnInit {
   }
 `;
 
-interface QueryResponse{
-  restaurants
-  loading
-}
 
 
-
-    this.apollo.watchQuery<QueryResponse>({
+    this.apollo.watchQuery({
       query: queryinfo
     }).subscribe((x:any) => {
       //var xxx = data;
@@ -46,8 +41,12 @@ interface QueryResponse{
   }
 
 
-  goToDetail(){
-    this.router.navigate(['/admin/restaurant/restaurant-detail/', 1]);
+  goToDetail(item){
+    this.router.navigate(['/admin/restaurant/restaurant-detail/',item.id ]);
+  }
+
+  goToMenu(){
+    console.log("GO TO MENU")
   }
 
 }
