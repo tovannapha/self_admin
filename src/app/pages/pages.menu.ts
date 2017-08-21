@@ -131,6 +131,44 @@ export const PAGES_MENU = [
           }
         ]
       },
+      {
+        path: 'coupon',
+        data: {
+          menu: {
+            title: 'coupon',
+            icon: 'ion-ribbon-b',
+            selected: false,
+            expanded: false,
+            order: 100,
+          }
+        },
+        children: [
+          {
+            path: 'coupon-home',
+            data: {
+              menu: {
+                title: 'ຈັດການ coupon',
+              }
+            }
+          },
+          {
+            path: 'coupon-add',
+            data: {
+              menu: {
+                title: 'ເພີ່ມ coupon',
+              }
+            }
+          },
+          {
+            path: 'coupon-type',
+            data: {
+              menu: {
+                title: 'ປະເພດ coupon',
+              }
+            }
+          }
+        ]
+      },
       /* {
         path: 'components',
         data: {
