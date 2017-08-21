@@ -7,15 +7,15 @@
     <div class="row">
       <div class="form-group col-sm-12">
         <label for="exampleInputtext1">ຊື່ໂປໂມເຊີນ</label>
-        <input type="text" class="form-control" id="exampleInputName2" placeholder="ຊື່ໂປໂມເຊີນ" [(ngModel)]="coupon.name">
+        <input type="text" class="form-control" id="exampleInputName2" placeholder="ຊື່ໂປໂມເຊີນ" [(ngModel)]="name">
       </div>
       <div class="form-group col-sm-12">
         <label for="exampleInputtext1">ລາຍລະອຽດໂປໂມເຊີນ</label>
-        <input type="textarea" class="form-control" id="exampleInputtext2" placeholder="ລາຍລະອຽດໂປໂມເຊີນ"  [(ngModel)]="coupon.description">
+        <input type="textarea" class="form-control" id="exampleInputtext2" placeholder="ລາຍລະອຽດໂປໂມເຊີນ"  [(ngModel)]="description">
       </div>
       <div class="form-group col-sm-12">
         <label for="exampleInputtext1">ປະເພດໂປໂມເຊີນ</label>
-        <input type="text" class="form-control" id="exampleInputtext2" placeholder="ປະເພດໂປໂມເຊີນ"  [(ngModel)]="coupon.type">
+        <input type="text" class="form-control" id="exampleInputtext2" placeholder="ປະເພດໂປໂມເຊີນ"  [(ngModel)]="cupon_type">
       </div>
       <div class="form-group col-sm-12">
         <div class="card">
@@ -25,11 +25,11 @@
           <div class="card-body  form-inline">
             <div class="form-group col-sm-6">
               <label for="exampleInputtext1">ເລີ່ມມື້ໃດ</label>
-              <input type="text" class="form-control" id="exampleInputtext2" placeholder="From" [(ngModel)]="coupon.fromdate">
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="From" [(ngModel)]="fromDate">
             </div>
             <div class="form-group col-sm-6">
               <label for="exampleInputtext1">ຫາມື້ໃດ</label>
-              <input type="text" class="form-control" id="exampleInputtext2" placeholder="To"  [(ngModel)]="coupon.todate">
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="To"  [(ngModel)]="toDate">
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@
           <div class="card-body  form-inline">
             <div class="form-group col-sm-12">
               <label for="exampleInputtext1">ໄອດີຮ້ານ</label>
-              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ໄອດີຮ້ານ" [(ngModel)]="coupon.retaurant_id">
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ໄອດີຮ້ານ" [(ngModel)]="retaurant_id">   
             </div>
           </div>
         </div>
