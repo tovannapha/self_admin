@@ -36,6 +36,7 @@ export const routes: Routes = [
       { path: 'order', loadChildren: './order/order.module#OrderModule' },
       { path: 'review', loadChildren: './review/review.module#ReviewModule' },
       { path: 'notification', loadChildren: './notification/notification.module#NotificationModule' },
+      { path: 'type', loadChildren: './type/type.module#TypeModule' },
     ]
   }
 ];

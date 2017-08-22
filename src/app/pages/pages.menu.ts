@@ -48,7 +48,7 @@ export const PAGES_MENU = [
             path: 'user-block',
             data: {
               menu: {
-                title: 'ບລອກຜູ້ໃຊ້',
+                title: 'ກຳນົດການເຂົ້າເຖິງ',
                 icon: 'ion-ios-personadd-outline',
               }
             }
@@ -193,7 +193,7 @@ export const PAGES_MENU = [
           }
         }
       },
-       {
+      {
         path: 'review',
         data: {
           menu: {
@@ -216,6 +216,54 @@ export const PAGES_MENU = [
             order: 0
           }
         }
+      },
+      {
+        path: 'type',
+        data: {
+          menu: {
+            title: 'ຈັດການປະເພດ',
+            icon: 'fa fa-cutlery',
+            selected: false,
+            expanded: false,
+            order: 0
+          }
+        },
+        children: [
+          {
+            path: 'type-restaurant',
+            data: {
+              menu: {
+                title: 'ປະເພດຮ້ານອາຫານ',
+              }
+            },
+            children: [
+              {
+                path: 'type-restaurant',
+                data: {
+                  menu: {
+                    title: 'ຈັດການປະເພດ',
+                  }
+                }
+              },
+              {
+                path: 'type-restaurant',
+                data: {
+                  menu: {
+                    title: 'ເພີ່ມປະເພດຮ້ານອາຫານ',
+                  }
+                }
+              }
+            ]
+          },
+          {
+            path: 'type-restaurant',
+            data: {
+              menu: {
+                title: 'ປະເພດເມນູ',
+              }
+            }
+          }
+        ]
       },
       /* {
         path: 'components',

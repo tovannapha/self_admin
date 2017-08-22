@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { DefaultModal } from './../../ui/components/modals/default-modal/default-modal.component';
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
@@ -22,7 +20,6 @@ export class MenuRestaurantComponent implements OnInit {
     private apollo: Apollo,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private modalService: NgbModal
   ) { }
 
   ngOnInit() {
@@ -53,9 +50,5 @@ export class MenuRestaurantComponent implements OnInit {
   }
 
 
-  lgModalShow() {
-    const activeModal = this.modalService.open(DefaultModal, {size: 'lg'});
-    activeModal.componentInstance.modalHeader = 'Large Modal';
-  }
 
 }
