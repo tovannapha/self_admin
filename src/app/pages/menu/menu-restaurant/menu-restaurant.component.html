@@ -1,0 +1,62 @@
+<br>
+<div class="kameleon-icon">
+  <h1>
+    <img src="assets/img/theme/icon/kameleon/Shop.svg"> ເມນູ ຮ້ານ{{restaurant?.name}}
+  </h1>
+</div>
+<br><br>
+<button type="button" class="btn btn-default" (click)="goToMenu()">ເພີ່ມເມນູ</button>
+<br><br>
+<div class="card">
+  <div class="card-header">
+    <h3 >ຂໍ້ມູນເມນູ</h3>
+  </div>
+  <div class="card-body">
+
+    <!-- ຂໍ້ມູນເມນູ -->
+    <table class="table table-condensed  table-hover">
+      <thead>
+        <tr>
+          <th class="table-id">#</th>
+          <th>ຮູບພາບ</th>
+          <th>ຊື່ເມນູ</th>
+          <th>ລາຄາ</th>
+          <th>ອັບເດດລ່າສຸດ</th>
+          <th>ຈັດການ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of [1,2,3,4,5,6]; let i = index" style="cursor: pointer" data-toggle="modal" data-target="#exampleModal">
+          <td class="table-id">{{ i + 1 }}</td>
+          <td><img src="assets/images/muaku.PNG" alt="" style="height:80px;border-radius:10px 10px 10px 10px; padding:3px;"></td>
+          <td>ປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນ</td>
+          <td>30,000 ກີບ</td>
+          <td>22/08/2017</td>
+          <td><button type="button" class="btn btn-default" (click)="goToMenu()">ແກ້ໄຂ</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- #ຂໍ້ມູນເມນູ -->
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4class="modal-title" id="exampleModalLabel" style="color:black;">ຂໍ້ມູນເມນຼ</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">ຍົກເລີກ</button>
+        <button type="button" class="btn btn-primary">ແກ້ໄຂ</button>
+      </div>
+    </div>
+  </div>
+</div>

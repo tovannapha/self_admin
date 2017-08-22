@@ -2,18 +2,18 @@ import { Routes, RouterModule }  from '@angular/router';
 
 import { ModuleWithProviders } from '@angular/core';
 
-import { ReviewComponent } from './review.component';
+import { TypeComponent } from './type.component';
 
-import { ReviewHomeComponent } from './review-home/review-home.component';
+import { TypeRestaurantComponent } from './type-restaurant/type-restaurant.component';
 
 // noinspection TypeScriptValidateTypes
 export const routes: Routes = [
   {
     path: '',
-    component: ReviewComponent,
+    component: TypeComponent,
     children: [
-      { path: '', redirectTo: 'review-home', pathMatch: 'full' },
-      { path: 'review-home', component: ReviewHomeComponent }
+      { path: '', redirectTo: 'type-restaurant', pathMatch: 'full' },
+      { path: 'type-restaurant', component: TypeRestaurantComponent }
     ]
   }
 ];
