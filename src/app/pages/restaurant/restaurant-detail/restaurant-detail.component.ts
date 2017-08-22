@@ -71,7 +71,7 @@ export class RestaurantDetailComponent implements OnInit {
   }
 
   goToMenu(){
-    this.router.navigate(['/admin/restaurant/restaurant-menu/', this.id]);
+    this.router.navigate(['/admin/menu/menu-restaurant/', this.id]);
   }
 
 

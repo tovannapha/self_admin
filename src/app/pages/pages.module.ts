@@ -1,7 +1,7 @@
-import { NgModule }      from '@angular/core';
-import { CommonModule }  from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import { routing }       from './pages.routing';
+import { routing } from './pages.routing';
 import { NgaModule } from '../theme/nga.module';
 import { AppTranslationModule } from '../app.translation.module';
 
@@ -12,13 +12,18 @@ import { EventComponent } from './event/event.component';
 import { CouponComponent } from './coupon/coupon.component';
 
 @NgModule({
-  imports: [CommonModule, AppTranslationModule, NgaModule, routing],
+  imports: [
+    CommonModule,
+    AppTranslationModule,
+    NgaModule,
+    routing
+  ],
   declarations: [
-      Pages,
-      NewComponent, 
-      RestaurantComponent, 
-      EventComponent, 
-    ]
+    Pages,
+    NewComponent,
+    RestaurantComponent,
+    EventComponent,
+  ]
 })
 export class PagesModule {
 }
