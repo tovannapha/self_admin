@@ -98,7 +98,7 @@ export const PAGES_MENU = [
         data: {
           menu: {
             title: 'ອິເວັນ',
-            icon: 'ion-ribbon-b',
+            icon: 'fa fa-flask',
             selected: false,
             expanded: false,
             order: 100,
@@ -168,6 +168,54 @@ export const PAGES_MENU = [
             }
           }
         ]
+      },
+      {
+        path: 'menu',
+        data: {
+          menu: {
+            title: 'ເມນູ',
+            icon: 'fa fa-yelp',
+            selected: false,
+            expanded: false,
+            order: 0
+          }
+        }
+      },
+      {
+        path: 'order',
+        data: {
+          menu: {
+            title: 'ລາຍການສັ່ງອາຫານ',
+            icon: 'fa fa-cutlery',
+            selected: false,
+            expanded: false,
+            order: 0
+          }
+        }
+      },
+       {
+        path: 'review',
+        data: {
+          menu: {
+            title: 'ລິວີວຮ້ານ',
+            icon: 'fa fa-cutlery',
+            selected: false,
+            expanded: false,
+            order: 0
+          }
+        }
+      },
+      {
+        path: 'notification',
+        data: {
+          menu: {
+            title: 'ແຈ້ງເຕືອນ',
+            icon: 'fa fa-cutlery',
+            selected: false,
+            expanded: false,
+            order: 0
+          }
+        }
       },
       /* {
         path: 'components',

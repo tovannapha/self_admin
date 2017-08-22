@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgaModule } from '../../theme/nga.module';
 
 import { RestaurantComponent } from './Restaurant.component';
@@ -18,7 +17,6 @@ import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.compo
     imports: [
         CommonModule,
         FormsModule,
-        NgbRatingModule,
         NgaModule,
         routing
     ],

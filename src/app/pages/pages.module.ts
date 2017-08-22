@@ -13,7 +13,12 @@ import { CouponComponent } from './coupon/coupon.component';
 
 @NgModule({
   imports: [CommonModule, AppTranslationModule, NgaModule, routing],
-  declarations: [Pages, NewComponent, RestaurantComponent, EventComponent]
+  declarations: [
+      Pages,
+      NewComponent, 
+      RestaurantComponent, 
+      EventComponent, 
+    ]
 })
 export class PagesModule {
 }

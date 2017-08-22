@@ -31,7 +31,11 @@ export const routes: Routes = [
       { path: 'user', loadChildren: './user/user.module#UserModule' },
       { path: 'restaurant', loadChildren: './restaurant/restaurant.module#RestaurantModule' },
       { path: 'event', loadChildren: './event/event.module#EventModule' },
-      { path: 'coupon', loadChildren: './coupon/coupon.module#CouponModule' }
+      { path: 'coupon', loadChildren: './coupon/coupon.module#CouponModule' },
+      { path: 'menu', loadChildren: './menu/menu.module#MenuModule' },
+      { path: 'order', loadChildren: './order/order.module#OrderModule' },
+      { path: 'review', loadChildren: './review/review.module#ReviewModule' },
+      { path: 'notification', loadChildren: './notification/notification.module#NotificationModule' },
     ]
   }
 ];
