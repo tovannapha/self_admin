@@ -11,10 +11,10 @@
     <thead>
       <tr>
         <th class="table-id">#</th>
-        <th>ຊື່ຮ້ານ</th>
-        <th>ເບີໂທ</th>
-        <th>ທີ່ຢູ່</th>
-        <th>ຈັດການ</th>
+        <th><h3><b><i class="ion-android-share-alt"></i> ຊື່ຮ້ານ</b></h3></th>
+        <th><h3><b><i class="ion-ios-telephone"></i> ເບີໂທ</b></h3></th>
+        <th><h3><b><i class="ion-ios-location"></i> ທີ່ຢູ່</b></h3></th>
+        <th><h3><b><i class="ion-android-apps"></i> ຈັດການ</b></h3></th>
       </tr>
     </thead>
     <tbody>
@@ -23,7 +23,7 @@
         <td (click)="goToDetail(item)">{{ item.name }}</td>
         <td>+856-20-222XXXX</td>
         <td>{{ item.address }}</td>
-        <td><button type="button" class="btn btn-default" (click)="goToMenu()">ຈັດການເມນູ</button> <button type="button" class="btn btn-default">ພະນັກງານ</button> <button type="button" class="btn btn-default">ແກ້ໄຂຮ້ານ</button> <button type="button" class="btn btn-danger">ລຶບ</button></td>
+        <td><button type="button" class="btn btn-default" (click)="goToMenu()">ຈັດການເມນູ</button> <button type="button" class="btn btn-default">ພະນັກງານ</button> <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="ແກ້ໄຂຮ້ານອາຫານ"><i class="ion-ios-compose-outline"></i></button> <button type="button" class="btn btn-danger"  data-toggle="tooltip" data-placement="top" title="ລຶບຮ້ານອາຫານ"><i class="ion-ios-trash-outline"></i></button></td>
       </tr>
     </tbody>
   </table>

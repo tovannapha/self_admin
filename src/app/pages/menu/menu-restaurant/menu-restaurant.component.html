@@ -5,11 +5,11 @@
   </h1>
 </div>
 <br><br>
-<button type="button" class="btn btn-default" (click)="goToMenu()">ເພີ່ມເມນູ</button>
+<button type="button" class="btn btn-default" (click)="goToAddMenu()"><i class="ion-plus-round"></i> ເພີ່ມເມນູ</button>
 <br><br>
 <div class="card">
   <div class="card-header">
-    <h3 >ຂໍ້ມູນເມນູ</h3>
+    <h3>ຂໍ້ມູນເມນູ</h3>
   </div>
   <div class="card-body">
 
@@ -26,13 +26,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of [1,2,3,4,5,6]; let i = index" style="cursor: pointer" data-toggle="modal" data-target="#exampleModal">
+        <tr *ngFor="let item of [1,2,3,4,5,6]; let i = index" style="cursor: pointer">
           <td class="table-id">{{ i + 1 }}</td>
-          <td><img src="assets/images/muaku.PNG" alt="" style="height:80px;border-radius:10px 10px 10px 10px; padding:3px;"></td>
-          <td>ປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນ</td>
+          <td><img src="assets/images/muaku.PNG" alt="" style="height:80px;border-radius:10px 10px 10px 10px; padding:3px;" data-toggle="modal" data-target="#viewMenu"></td>
+          <td  data-toggle="modal" data-target="#viewInfo">ປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນ</td>
           <td>30,000 ກີບ</td>
           <td>22/08/2017</td>
-          <td><button type="button" class="btn btn-default" (click)="goToMenu()">ແກ້ໄຂ</button></td>
+          <td> <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="ແກ້ໄຂເມນູ"  (click)="goToMenu()"><i class="ion-ios-compose-outline"></i></button></td>
         </tr>
       </tbody>
     </table>
@@ -41,21 +41,58 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="viewInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4class="modal-title" id="exampleModalLabel" style="color:black;">ຂໍ້ມູນເມນຼ</h4>
+        <h3 class="modal-title" id="exampleModalLabel" style="color:black;">ຂໍ້ມູນເມນູ</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        ...
+      <div class="modal-body" style="color:black;">
+        <div class="row">
+          <div class="col-sm-3">
+            ຊື່ເມນູ:
+          </div>
+          <div class="col-sm-9">
+            ປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນ
+          </div><br><br>
+          <div class="col-sm-3">
+            ລາຄາ:
+          </div>
+          <div class="col-sm-9">
+            30,000 ກີບ
+          </div>
+          <div class="col-sm-3">
+            ປະເພດເມນູ:
+          </div>
+          <div class="col-sm-9">
+            ປິ້ງ
+          </div>
+          <div class="col-sm-3">
+            ເນື້ອໃນເມນູ:
+          </div>
+          <div class="col-sm-9">
+            ປິ້ງ
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">ຍົກເລີກ</button>
         <button type="button" class="btn btn-primary">ແກ້ໄຂ</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal2 -->
+<div class="modal fade" id="viewMenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body" style="color:black;">
+        <img src="assets/images/muaku.PNG" alt="" style="width:100%;border-radius:10px 10px 10px 10px; padding:3px;">
       </div>
     </div>
   </div>

@@ -1,0 +1,72 @@
+<br>
+<div class="kameleon-icon">
+  <h1>
+    <img src="assets/img/theme/icon/kameleon/Shop.svg"> ເພີ່ມເມນູ
+  </h1>
+</div>
+<br><br>
+
+<div class="card">
+  <div class="card-header">
+    <h3 style="color:#2c3e50"><i class="ion-ios-paper"></i> ຂໍ້ມູນເມນູ</h3>
+  </div>
+  <div class="card-body">
+
+    <div class="form-group col-sm-12">
+      <label for="exampleInputtext1">ຊຶ່ເມນູ</label>
+      <input type="text" class="form-control" id="exampleInputtext2" [(ngModel)]="retaurant_parkinglot_capacity">
+    </div>
+
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <label for="exampleInputtext1">ປະເພດເມນູ</label>
+        <select class="form-control" id="exampleSelect1" [(ngModel)]="retaurant_type">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+
+      <div class="form-group col-sm-4">
+        <label for="exampleInputtext1">ລາຄາ</label>
+        <input type="text" class="form-control" id="exampleInputtext2" [(ngModel)]="retaurant_parkinglot_capacity">
+      </div>
+
+      <div class="form-group col-sm-2">
+        <label for="exampleInputtext1">ສະກຸນເງິນ</label>
+        <select class="form-control" id="exampleSelect1" [(ngModel)]="retaurant_type">
+          <option>ກິບ</option>
+          <option>ບາດ</option>
+          <option>ໂດລາ</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="form-group col-sm-12">
+      <label for="exampleInputtext1">ອະທິບາຍເມນູ</label>
+      <textarea class="form-control" id="exampleInputtext2" [(ngModel)]="retaurant_parkinglot_capacity"></textarea>
+    </div>
+
+
+
+    <div class="card">
+      <div class="card-header">
+        <h3 style="color:#2c3e50"> <i class="ion-android-camera"></i> ຮູບພາບເມນູ</h3>
+      </div>
+      <div class="card-body">
+        <ba-picture-uploader [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="form-group text-center">
+      <button type="submit" class="btn btn-primary" (click)="add_restaurant()"><i  class="ion-android-add"></i> ເພີ່ມເມນູ</button>
+    </div>
+  </div>
