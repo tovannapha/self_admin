@@ -5,6 +5,7 @@ import { RestaurantHomeComponent } from './Restaurant-home/Restaurant-home.compo
 import { RestaurantAddComponent } from './restaurant-add/restaurant-add.component';
 import { RestaurantTypeComponent } from './restaurant-type/restaurant-type.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
+import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.component';
 
 const routes: Routes = [
   {
@@ -15,8 +16,9 @@ const routes: Routes = [
       { path: 'restaurant-home', component: RestaurantHomeComponent },
       { path: 'restaurant-add', component: RestaurantAddComponent },
       { path: 'restaurant-type', component: RestaurantTypeComponent },
-      { path: 'restaurant-detail/:id', component: RestaurantDetailComponent }
-    ] 
+      { path: 'restaurant-detail/:id', component: RestaurantDetailComponent },
+      { path: 'restaurant-menu/:id', component: RestaurantMenuComponent }
+    ]
   }
 ];
 

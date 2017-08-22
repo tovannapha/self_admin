@@ -1,6 +1,23 @@
+<br>
 <h1>
-  ໂປໄຟຂອງ: ຮ້ານ{{restaurant.name}}
+  ໂປໄຟຂອງ: ຮ້ານ{{restaurant?.name}}
 </h1>
+<br><br>
+<div class="btn-toolbar-example" style="position:fixed; top:80px; right:20px; z-index:999;">
+  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group" role="group" aria-label="First group">
+      <button type="button" class="btn btn-default">ຈັດການເມນູ</button>
+      <button type="button" class="btn btn-default">ຈັດການພະນັກງານ</button>
+      <button type="button" class="btn btn-default">ການຈອງຮ້ານ</button>
+      <button type="button" class="btn btn-default">ຈັດການອີເວັນ</button>
+    </div>
+    <div class="btn-group" role="group" aria-label="Second group">
+     <!--  <button type="button" class="btn btn-primary">5</button>
+      <button type="button" class="btn btn-primary">6</button>
+      <button type="button" class="btn btn-primary">7</button> -->
+    </div>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-sm-9">
@@ -33,3 +50,36 @@
     </div>
   </div>
 </div>
+
+<div class="card">
+  <div class="card-header float-right" style="color:#2c3e50">
+    <p>ເມນູຂອງຮ້ານອາຫານ</p> <button type="button" class="btn btn-default" (click)="goToMenu()" style="position:absolute; right:10px; top:8px;">ຈັດການເມນູ</button>
+  </div>
+  <div class="card-body">
+    <table class="table table-condensed  table-hover">
+      <thead>
+        <tr>
+          <th class="table-id">#</th>
+          <th>ຮູບພາບ</th>
+          <th>ຊື່ເມນູ</th>
+          <th>ລາຄາ</th>
+          <th>ຈັດການ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of [1,2,3,4,5,6]; let i = index" style="cursor: pointer">
+          <td class="table-id">{{ i + 1 }}</td>
+          <td><img src="assets/images/muaku.PNG" alt="" style="height:80px;border-radius:10px 10px 10px 10px; padding:3px;"></td>
+          <td>ປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນປີ້ງປານິນ</td>
+          <td>30,000 ກີບ</td>
+          <td><button type="button" class="btn btn-default" (click)="goToMenu()">ແກ້ໄຂ</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<ba-card cardTitle="ແຜນທີ່ຮ້ານ">
+  <div class="google-maps"></div>
+</ba-card>

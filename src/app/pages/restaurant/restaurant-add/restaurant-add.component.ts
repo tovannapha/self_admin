@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
+import { NgUploaderOptions } from 'ngx-uploader';
 
 
 @Component({
@@ -26,13 +27,6 @@ export class RestaurantAddComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-
-
-
-
-
-
   }
 
   add_restaurant() {
@@ -45,7 +39,7 @@ export class RestaurantAddComponent implements OnInit {
     console.log(this.retaurant_location_y);
     console.log(this.retaurant_tables);
 
-    const submitRepository = gql`
+    const mutationinfo = gql`
         mutation ($name: String!) {
           addRestaurant(data:{
             name:$name
@@ -56,14 +50,32 @@ export class RestaurantAddComponent implements OnInit {
       `;
 
 
-   /*  this.apollo.mutate({
-      mutation: submitRepository,
-      variables : {
+    this.apollo.mutate({
+      mutation: mutationinfo,
+      variables: {
         name: this.retaurant_name
       }
     }).subscribe(({ data }) => {
       console.log(data)
-    }); */
+    });
   }
+
+
+
+  public defaultPicture = 'assets/img/theme/no-photo.png';
+  public profile: any = {
+    picture: 'assets/images/muaku.PNG'
+  };
+  public uploaderOptions: NgUploaderOptions = {
+    // url: 'http://website.com/upload'
+    url: '',
+  };
+
+  public fileUploaderOptions: NgUploaderOptions = {
+    // url: 'http://website.com/upload'
+    url: '',
+  };
+
+
 
 }

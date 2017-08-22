@@ -1,22 +1,31 @@
+<br>
+<div class="kameleon-icon">
+  <h1>
+    <img src="assets/img/theme/icon/kameleon/Shop.svg"> ຈັດການຮ້ານອາຫານ
+  </h1>
+</div>
+<br><br>
+
 <div class="horizontal-scroll">
   <table class="table table-condensed  table-hover">
     <thead>
-    <tr>
-      <th class="table-id">#</th>
-      <th>ຊື່ຮ້ານ</th>
-      <th>ເບີໂທ</th>
-      <th>ທີ່ຢູ່</th>
-      <th>ຈັດການ</th>
-    </tr>
+      <tr>
+        <th class="table-id">#</th>
+        <th>ຊື່ຮ້ານ</th>
+        <th>ເບີໂທ</th>
+        <th>ທີ່ຢູ່</th>
+        <th>ຈັດການ</th>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of restaurants; let i = index" style="cursor: pointer">
-      <td class="table-id">{{ i + 1  }}</td>
-      <td  (click)="goToDetail(item)">{{ item.name }}</td>
-      <td>{{ item.phone }}</td>
-      <td>{{ item.address }}</td>
-      <td><button type="button" class="btn btn-default" (click)="goToMenu()">ຈັດການເມນູ</button> <button type="button" class="btn btn-default" >ພະນັກງານ</button></td>
-    </tr>
+      <tr *ngFor="let item of restaurants; let i = index" style="cursor: pointer">
+        <td class="table-id">{{ i + 1 }}</td>
+        <td (click)="goToDetail(item)">{{ item.name }}</td>
+        <td>+856-20-222XXXX</td>
+        <td>{{ item.address }}</td>
+        <td><button type="button" class="btn btn-default" (click)="goToMenu()">ຈັດການເມນູ</button> <button type="button" class="btn btn-default">ພະນັກງານ</button></td>
+      </tr>
     </tbody>
   </table>
 </div>
+

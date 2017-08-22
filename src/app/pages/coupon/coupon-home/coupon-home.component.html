@@ -1,0 +1,25 @@
+<div class="horizontal-scroll">
+  <table class="table table-condensed  table-hover">
+    <thead>
+    <tr>
+      <th class="table-id">#</th>
+      <th>ຊື່ໂປໂມເຊີນ</th>
+      <th>ລາຍລະອຽດໂປໂມເຊີນ</th>
+      <th>ເລີ່ມມື້ໃດ</th>
+      <th>ຫາມື້ໃດ</th>
+      <th>ຈັດການ</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of [1,2,3,4,5,6,7]; let i = index" style="cursor: pointer">
+      <td class="table-id">{{ i + 1  }}</td>
+      <td  (click)="goToDetail(item)">ຊື່ 2 ແຖມ 1</td>
+      <td>ຊື່ 2 ແຖມ 1</td>
+      <td>01/08/2017</td>
+      <td>09/09/2017</td>
+      <td><button type="button" class="btn btn-default" (click)="goToMenu()"><i class="fa fa-edit"></i> ແກ້ໄຂ</button> </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
