@@ -7,9 +7,9 @@
 <br><br>
 
 <div class="horizontal-scroll">
-  <table class="table table-condensed  table-hover">
+  <table class="table table-condensed  table-hover table-bordered" style="border-radius:5px 5px 5px 5px;" >
     <thead>
-      <tr>
+      <tr style="background:rgba(0,0,0,0.2);">
         <th class="table-id">#</th>
         <th><h3><b><i class="ion-android-share-alt"></i> ຊື່ຮ້ານ</b></h3></th>
         <th><h3><b><i class="ion-ios-telephone"></i> ເບີໂທ</b></h3></th>
@@ -18,12 +18,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of restaurants; let i = index" style="cursor: pointer">
+      <tr *ngFor="let item of restaurants; let i = index">
         <td class="table-id">{{ i + 1 }}</td>
-        <td (click)="goToDetail(item)">{{ item.name }}</td>
+        <td (click)="goToDetail(item)"  style="cursor: pointer" >{{ item.name }}</td>
         <td>+856-20-222XXXX</td>
-        <td>{{ item.address }}</td>
-        <td><button type="button" class="btn btn-default" (click)="goToMenu()">ຈັດການເມນູ</button> <button type="button" class="btn btn-default">ພະນັກງານ</button> <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="ແກ້ໄຂຮ້ານອາຫານ"><i class="ion-ios-compose-outline"></i></button> <button type="button" class="btn btn-danger"  data-toggle="tooltip" data-placement="top" title="ລຶບຮ້ານອາຫານ"><i class="ion-ios-trash-outline"></i></button></td>
+        <td>ບ້ານນາຄຳ ເມືອງສີໂຄດຕະບອງ</td>
+        <td><button type="button" class="btn btn-default" (click)="goToMenu()">ຈັດການເມນູ</button> <button type="button" class="btn btn-default">ພະນັກງານ</button> <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="ແກ້ໄຂຮ້ານອາຫານ" (click)="editRestaurant()"><i class="ion-ios-compose-outline"></i></button> <button type="button" class="btn btn-danger"  data-toggle="tooltip" data-placement="top" title="ລຶບຮ້ານອາຫານ" (click)="deteleteRestaurant()"><i class="ion-ios-trash-outline"></i></button></td>
       </tr>
     </tbody>
   </table>

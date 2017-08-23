@@ -13,6 +13,12 @@ export class MenuRestaurantAddComponent implements OnInit {
   id: String;
   restaurant: any;
 
+  menu_name: String;
+  menu_category: [String];
+  menu_price: Number;
+  menu_currency: String;
+  menu_description: String;
+
   constructor(
     private apollo: Apollo,
     private router: Router,
@@ -27,5 +33,38 @@ export class MenuRestaurantAddComponent implements OnInit {
 
 
   }
+
+  add_menu() {
+
+    console.log(this.menu_name)
+
+    const mutationinfo = gql`
+        mutation ($name: String! , $restaurant_id :ID! , $menu_description : String) {
+          addMenu(data:{
+            name:$name
+            restaurant_id: $restaurant_id
+            description: $menu_description
+            ca
+          }) {
+            id
+            name
+          }
+        }
+      `;
+
+
+    this.apollo.mutate({
+      mutation: mutationinfo,
+      variables: {
+        name: "test",
+        restaurant_id: this.id,
+        menu_description: this.menu_description,
+      }
+    }).subscribe(({ data  } :any) => {
+      console.log("werwerwer",data)
+      this.router.navigate(['/admin/restaurant/restaurant-detail/', data.id]);
+    });
+  }
+
 
 }

@@ -9,7 +9,7 @@ import { Pages } from './pages.component';
 import { NewComponent } from './new/new.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { EventComponent } from './event/event.component';
-import { CouponComponent } from './coupon/coupon.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   imports: [
@@ -20,7 +20,7 @@ import { CouponComponent } from './coupon/coupon.component';
   ],
   declarations: [
     Pages,
-    NewComponent,
+    UserComponent,
     RestaurantComponent,
     EventComponent,
   ]
