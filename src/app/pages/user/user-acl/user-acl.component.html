@@ -1,0 +1,93 @@
+<br>
+<div class="kameleon-icon">
+  <h1>
+    <img src="assets/img/theme/icon/kameleon/Burglar.svg"> ຈັດການການເຂົ້າເຖິງຂອງຜູ້ໃຊ້
+  </h1>
+</div>
+<br>
+
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#addAcl">ເພີ່ມລະດັບໃໝ່</button>
+
+<br><br>
+
+<div class="horizontal-scroll">
+  <table class="table table-condensed  table-hover table-bordered" style="border-radius:5px 5px 5px 5px;">
+    <thead>
+      <tr style="background:rgba(0,0,0,0.2);">
+        <th class="table-id">#</th>
+        <th>
+          <h3><b><i class="ion-android-share-alt"></i> ຊື່ Role</b></h3>
+        </th>
+        <th>
+          <h3 data-placement="top" title="ໜ້າທີ່ສາມາດເຂົ້າເຖິງ"><b><i class="ion-ios-telephone"></i> ສ່ວນທີ່ສາມາດເຂົ້າເຖິງ (Resource)</b></h3>
+        </th>
+        <th>
+          <h3 data-placement="top" title="Protocol ທີ່ສາມາດເຂົ້າເຖິງຂໍ້ມູນ(post or get)"><b><i class="ion-ios-location"></i> Action </b></h3>
+        </th>
+        <th>
+          <h3 data-toggle="tooltip" data-placement="top" title="ຂໍ້ມູນທີ່ສາມາດດຶງອອກມາຈາກຖານຂໍ້ມູນ"><b><i class="ion-android-apps"></i> Attributes </b></h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of [1,2,3,4,5,6]; let i = index" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+        aria-controls="collapseExample">
+        <td class="table-id">{{ i + 1 }}</td>
+        <td (click)="goToDetail(item)" style="cursor: pointer">ADMIN</td>
+        <td style="padding:0;">
+          <!-- 555555 -->
+          <table class="table table-condensed  table-hover table-bordered" style="background:rgba(0,0,0,0.0);">
+            <tbody>
+              <tr *ngFor="let item of [1,2,3,4,5,6]; let i = index" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+                aria-controls="collapseExample">
+                <td class="table-id">{{ i + 1 }}</td>
+                <td (click)="goToDetail(item)" style="cursor: pointer">ADMIN</td>
+                <td> <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="ແກ້ໄຂຮ້ານອາຫານ"
+                    (click)="editRestaurant()"><i class="ion-ios-compose-outline"></i></button> <button type="button" class="btn btn-danger"
+                    data-toggle="tooltip" data-placement="top" title="ລຶບຮ້ານອາຫານ" (click)="deteleteRestaurant()"><i class="ion-ios-trash-outline"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- 555555 -->
+        </td>
+        <td style="padding:0;">
+          <!-- 555555 -->
+          <table class="table table-condensed  table-hover table-bordered" style="background:rgba(0,0,0,0.0);">
+            <tbody>
+              <tr *ngFor="let item of [1,2,3,4,5,6,7,8]; let i = index" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+                aria-controls="collapseExample">
+                <td class="table-id">{{ i + 1 }}</td>
+                <td (click)="goToDetail(item)" style="cursor: pointer">ADMIN</td>
+                <td> <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="ແກ້ໄຂຮ້ານອາຫານ"
+                    (click)="editRestaurant()"><i class="ion-ios-compose-outline"></i></button> <button type="button" class="btn btn-danger"
+                    data-toggle="tooltip" data-placement="top" title="ລຶບຮ້ານອາຫານ" (click)="deteleteRestaurant()"><i class="ion-ios-trash-outline"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- 555555 -->
+        </td>
+        <td > <button type="button" class="btn btn-default d-flex align-items-center" data-toggle="tooltip" data-placement="top" title="ແກ້ໄຂຮ້ານອາຫານ" (click)="editRestaurant()"><i class="ion-ios-compose-outline"></i></button>          <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="ລຶບຮ້ານອາຫານ" (click)="deteleteRestaurant()"><i class="ion-ios-trash-outline"></i></button></td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+<!-- Add ACL -->
+<div class="modal fade" id="addAcl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content" style="background:rgba(0,0,0,0.7);">
+      <div class="modal-body" >
+        <div class="form-group col-sm-12">
+          <label for="exampleInputtext1">ຊື່ລະດັບຜູ້ໃຊ້ໃໝ່</label>
+          <input type="text" class="form-control" id="exampleInputtext2" [(ngModel)]="retaurant_tables">
+        </div>
+        <button type="button" class="btn btn-default float-right">ເພີ່ມລະດັບຢູ່ເຊີໃໝ່</button>
+      </div>
+    </div>
+  </div>
+</div>

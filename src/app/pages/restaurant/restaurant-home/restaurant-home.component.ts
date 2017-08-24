@@ -29,8 +29,6 @@ export class RestaurantHomeComponent implements OnInit {
       }
     `;
 
-
-
     this.apollo.watchQuery({
       query: queryinfo
     }).subscribe((x: any) => {
@@ -38,6 +36,7 @@ export class RestaurantHomeComponent implements OnInit {
       this.restaurants = x.data.restaurants
       console.log(x.data.restaurants)
     });
+
   }
 
 
@@ -47,6 +46,16 @@ export class RestaurantHomeComponent implements OnInit {
 
   goToMenu() {
     console.log("GO TO MENU")
+  }
+
+
+  editRestaurant(item){
+    console.log("EDIT MENU")
+  }
+
+
+  deteleteRestaurant(item){
+    console.log("DELETE MENU")
   }
 
 }

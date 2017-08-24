@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
-
-
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
@@ -47,6 +44,10 @@ export class MenuRestaurantComponent implements OnInit {
       this.restaurant = x.data.restaurant
     });
 
+  }
+
+  goToAddMenu(){
+    this.router.navigate(['/admin/menu/menu-restaurant-add/', this.id]);
   }
 
 

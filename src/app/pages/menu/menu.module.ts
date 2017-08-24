@@ -9,6 +9,7 @@ import { MenuComponent } from './menu.component';
 import { routing } from './menu.routing';
 import { MenuHomeComponent } from './menu-home/menu-home.component';
 import { MenuRestaurantComponent } from './menu-restaurant/menu-restaurant.component';
+import { MenuRestaurantAddComponent } from './menu-restaurant-add/menu-restaurant-add.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { MenuRestaurantComponent } from './menu-restaurant/menu-restaurant.compo
         MenuComponent,
         MenuHomeComponent,
         MenuRestaurantComponent,
+        MenuRestaurantAddComponent,
     ]
 })
 export class MenuModule { }

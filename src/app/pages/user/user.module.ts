@@ -7,6 +7,7 @@ import { UserHomeComponent } from './components/user-home/user-home.component';
 
 
 import { routing } from './User.routing';
+import { UserAclComponent } from './user-acl/user-acl.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { routing } from './User.routing';
   ],
   declarations: [
     UserComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    UserAclComponent
   ]
 })
 export class UserModule {}
