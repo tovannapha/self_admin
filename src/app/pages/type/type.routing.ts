@@ -3,6 +3,7 @@ import { Routes, RouterModule }  from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 
 import { TypeComponent } from './type.component';
+import { TypeAllComponent } from './type-all/type-all.component';
 
 import { TypeRestaurantComponent } from './type-restaurant/type-restaurant.component';
 
@@ -12,8 +13,9 @@ export const routes: Routes = [
     path: '',
     component: TypeComponent,
     children: [
-      { path: '', redirectTo: 'type-restaurant', pathMatch: 'full' },
-      { path: 'type-restaurant', component: TypeRestaurantComponent }
+      { path: '', redirectTo: 'type-all', pathMatch: 'full' },
+      { path: 'type-all', component: TypeAllComponent },
+      { path: 'type-restaurant', loadChildren: './type-restaurant/type-restaurant.module#TypeRestaurantModule' },
     ]
   }
 ];
