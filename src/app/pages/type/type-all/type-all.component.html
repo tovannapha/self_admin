@@ -1,5 +1,6 @@
 <h1 style="padding:10px">ຈັດການປະເພດທັງໝົດ</h1>
 
+<!-- typeList -->
 <div class="card">
     <div class="card-body">
         <table>
@@ -21,6 +22,7 @@
     </div>
 </div>
 
+<!-- restaurantTypes -->
 <div class="card">
     <div class="header-small">
         <div class="row">
@@ -31,7 +33,7 @@
             <div class="col-sm-7 align-self-center">
                 <div class="row justify-content-end">
                     <div class="col-3">
-                        <button type="submit" class="btn btn-primary"><i  class="ion-android-add"></i> ເພີ່ມປະເພດ</button>
+                        <button type="submit" class="btn btn-primary" (click)="redirect('type-restaurant/type-restaurant-add')"><i  class="ion-android-add"></i> ເພີ່ມປະເພດ</button>
                     </div>
                     <div class="col-3">
                         <button type="submit" class="btn btn-primary"><i  class="ion-android-search"></i> ຄົ້ນຫາ</button>

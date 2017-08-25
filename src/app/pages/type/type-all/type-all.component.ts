@@ -49,4 +49,9 @@ export class TypeAllComponent implements OnInit {
     console.log("click detail")
   }
 
+  redirect(pageName: string) {
+    console.log(pageName)
+    // this.router.navigate(['/type/type-restaurant/type-restaurant-add']);
+    window.location.href = '#/admin/type/'+ pageName;
+  }
 }
