@@ -1,0 +1,128 @@
+<h1 style="padding:10px">ຈັດການປະເພດທັງໝົດ</h1>
+
+<!-- typeList -->
+<div class="card">
+    <div class="card-body">
+        <table>
+            <tbody>
+                <tr class="row">
+                    <td class="col">ປະເພດຮ້ານອາຫານ</td>
+                    <td class="col">ປະເພດເມນູ</td>
+                    <td class="col">ປະເພດສິນຄ້າ</td>
+                    <td class="col">ປະເພດຄູປອງ</td>
+                </tr>
+                <tr class="row">
+                    <td class="col"><img src="assets/img/theme/icon/kameleon/Shop.svg" style="width:80px;"></td>
+                    <td class="col"><img src="assets/img/theme/icon/kameleon/Food-Dome.svg" style="width:80px;"></td>
+                    <td class="col"><img src="assets/img/theme/icon/kameleon/Conveyor-Belt.svg" style="width:80px;"></td>
+                    <td class="col"><img src="assets/img/theme/icon/kameleon/Pantone.svg" style="width:80px;"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- restaurantTypes -->
+<div class="card">
+    <div class="header-small">
+        <div class="row">
+            <div class="col-sm-5">
+                <img src="assets/img/theme/icon/kameleon/Shop.svg" style="width:80px;">
+                <span style="font-size: 20px;">ປະເພດຮ້ານອາຫານ</span>
+            </div>
+            <div class="col-sm-7 align-self-center">
+                <div class="row justify-content-end">
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-primary" (click)="redirect('type-restaurant/type-restaurant-add')"><i  class="ion-android-add"></i> ເພີ່ມປະເພດ</button>
+                    </div>
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-primary"><i  class="ion-android-search"></i> ຄົ້ນຫາ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-condensed  table-hover">
+            <thead>
+                <tr class="row">
+                    <th class="col-sm-1 table-id">#</th>
+                    <th class="col-sm-3">ຊື່ປະເພດ</th>
+                    <th class="col-sm-3">Slug</th>
+                    <th class="col-sm-3">ລາຍລະອຽດ</th>
+                    <th class="col-sm-2">ຈັດການ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="row" *ngFor="let item of restaurantTypes; let i = index" style="cursor: pointer">
+                    <td class="table-id col-sm-1">{{ i + 1 }}</td>
+                    <td class="col-sm-3" (click)="goToDetail(item)">{{ item.name }}</td>
+                    <td class="col-sm-3">{{ item.slug}}</td>
+                    <td class="col-sm-3">{{ item.description }}</td>
+                    <td class="col-sm-2">
+                        <div class="row">
+                            <div class="col-6">
+                                <button type="button" class="btn btn-default">ແກ້ໄຂ</button><span> </span>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" class="btn btn-danger">ລຶບ</button><span> </span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <div class="header-small">
+        <div class="row">
+            <div class="col-sm-5">
+                <img src="assets/img/theme/icon/kameleon/Food-Dome.svg" style="width:80px;">
+                <span style="font-size: 20px;">ປະເພດເມນູ</span>
+            </div>
+            <div class="col-sm-7 align-self-center">
+                <div class="row justify-content-end">
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-primary"><i  class="ion-android-add"></i> ເພີ່ມປະເພດ</button>
+                    </div>
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-primary"><i  class="ion-android-search"></i> ຄົ້ນຫາ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-condensed  table-hover">
+            <thead>
+                <tr class="row">
+                    <th class="col-sm-1 table-id">#</th>
+                    <th class="col-sm-3">ຊື່ປະເພດ</th>
+                    <th class="col-sm-3">Slug</th>
+                    <th class="col-sm-3">ລາຍລະອຽດ</th>
+                    <th class="col-sm-2">ຈັດການ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="row" *ngFor="let item of menuTypes; let i = index" style="cursor: pointer">
+                    <td class="table-id col-sm-1">{{ i + 1 }}</td>
+                    <td class="col-sm-3" (click)="goToDetail(item)">{{ item.name }}</td>
+                    <td class="col-sm-3">{{ item.slug}}</td>
+                    <td class="col-sm-3">{{ item.description }}</td>
+                    <td class="col-sm-2">
+                        <div class="row">
+                            <div class="col-6">
+                                <button type="button" class="btn btn-default">ແກ້ໄຂ</button><span> </span>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" class="btn btn-danger">ລຶບ</button><span> </span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
