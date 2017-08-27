@@ -222,7 +222,7 @@ export const PAGES_MENU = [
         data: {
           menu: {
             title: 'ຈັດການປະເພດ',
-            icon: 'fa fa-cutlery',
+            icon: 'fa fa-list',
             selected: false,
             expanded: false,
             order: 0
@@ -230,33 +230,44 @@ export const PAGES_MENU = [
         },
         children: [
           {
+            path: 'type-all',
+            data: {
+              menu: {
+                title: 'ປະເພດທັງໝົດ',
+              }
+            }
+          },
+          {
             path: 'type-restaurant',
             data: {
               menu: {
-                title: 'ປະເພດຮ້ານອາຫານ',
+                title: 'ປະເພດຮ້ານ',
+                icon: 'fa fa-cutlery',
               }
             },
             children: [
               {
-                path: 'type-restaurant',
+                path: 'type-restaurant-home',
                 data: {
                   menu: {
                     title: 'ຈັດການປະເພດ',
+                    icon: 'fa fa-search',
                   }
                 }
               },
               {
-                path: 'type-restaurant',
+                path: 'type-restaurant-add',
                 data: {
                   menu: {
-                    title: 'ເພີ່ມປະເພດຮ້ານອາຫານ',
+                    title: 'ເພີ່ມປະເພດ',
+                    icon: 'fa fa-plus-square',
                   }
                 }
               }
             ]
           },
           {
-            path: 'type-restaurant',
+            path: 'type-menu',
             data: {
               menu: {
                 title: 'ປະເພດເມນູ',

@@ -5,8 +5,9 @@ import { NgaModule } from '../../theme/nga.module';
 import { routing } from './type.routing';
 
 import { TypeComponent } from './type.component';
+import { TypeAllComponent } from './type-all/type-all.component';
+// import { TypeRestaurantModule } from './type-restaurant/type-restaurant.module';
 
-import { TypeRestaurantComponent } from './type-restaurant/type-restaurant.component';
 
 
 @NgModule({
@@ -14,11 +15,12 @@ import { TypeRestaurantComponent } from './type-restaurant/type-restaurant.compo
         CommonModule,
         FormsModule,
         NgaModule,
-        routing
+        routing,
+        // TypeRestaurantModule,
     ],
     declarations: [
         TypeComponent,
-        TypeRestaurantComponent,
+        TypeAllComponent,
     ]
 })
 export class TypeModule { }

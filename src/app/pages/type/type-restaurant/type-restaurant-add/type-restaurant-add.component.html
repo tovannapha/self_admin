@@ -1,0 +1,31 @@
+<br>
+<div class="kameleon-icon">
+    <h1>
+        <img src="assets/img/theme/icon/kameleon/Shop.svg"> ເພີ່ມປະເພດຮ້ານອາຫານ
+    </h1>
+</div>
+<br><br>
+
+<div class="card">
+    <div class="card-header">
+        <h3 style="color:#2c3e50">ຕື່ມຂໍ້ມູນ</h3>
+    </div>
+    <div class="card-body">
+
+        <div class="row">
+            <div class="form-group col-sm-8">
+                ຊື່ປະເພດຮ້ານ<input type="text" class="form-control" placeholder="cafe" [(ngModel)]="type_name">
+            </div>
+            <div class="form-group col-sm-4">
+                Slug<input type="text" class="form-control" placeholder="Slug" [(ngModel)]="type_slug">
+            </div>
+            <div class="form-group col-sm-12">
+                ລາຍລະອຽດ<input type="text" class="form-control" placeholder="ຂາຍກາເຟ,ເຄັກ" [(ngModel)]="type_description">
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary" (click)="add_type()"><i  class="ion-android-add"></i> ເພີ່ມປະເພດ</button>
+    </div>
+</div>
