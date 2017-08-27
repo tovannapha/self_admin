@@ -1,0 +1,60 @@
+<div class="card">
+  <div class="card-header">
+    <h3 style="color:#2c3e50">ລາຍລະອຽດ</h3>
+  </div>
+  <div class="card-body">
+
+    <div class="row">
+      <div class="form-group col-sm-12">
+        <label for="exampleInputtext1">ຊື່ຜູ້ໃຊ້</label>
+        <input type="text" class="form-control" id="exampleInputName2" placeholder="ຊື່ຜູ້ໃຊ້" [(ngModel)]="name">
+      </div>
+      <div class="form-group col-sm-12">
+        <label for="exampleInputtext1">ຊື້ແທ້ຜູ້ໃຊ້</label>
+        <input type="textarea" class="form-control" id="exampleInputtext2" placeholder="ຊື້ແທ້ຜູ້ໃຊ້"  [(ngModel)]="fullname">
+      </div>
+      <div class="form-group col-sm-12">
+        <label for="exampleInputtext1">ວັນທີ່ເດືອນປີເກີດ</label>
+        <input type="text" class="form-control" id="exampleInputtext2" placeholder="ວັນທີ່ເດືອນປີເກີດ"  [(ngModel)]="birthday">
+      </div>
+      <div class="form-group col-sm-12">
+        <label for="exampleInputtext1">ອີເມວ</label>
+        <input type="textarea" class="form-control" id="exampleInputtext2" placeholder="ອີເມວ"  [(ngModel)]="email">
+      </div>
+      <div class="form-group col-sm-12">
+        <label for="exampleInputtext1">ລະດັບຢູເຊີ</label>
+        <input type="text" class="form-control" id="exampleInputtext2" placeholder="ລະດັບຢູເຊີ"  [(ngModel)]="level">
+      </div>
+      <div class="form-group col-sm-12">
+        <label for="exampleInputtext1">ລະຫັດລັບສຳລັບເພີ່ມຄວາມປອດໄພ</label>
+        <input type="textarea" class="form-control" id="exampleInputtext2" placeholder="ລະຫັດລັບສຳລັບເພີ່ມຄວາມປອດໄພ"  [(ngModel)]="secret">
+      </div>
+      <div class="form-group col-sm-12">
+        <label for="exampleInputtext1">ລະຫັດຜ່ານ</label>
+        <input type="text" class="form-control" id="exampleInputtext2" placeholder="ລະຫັດຜ່ານ"  [(ngModel)]="password">
+      </div>
+      
+      <div class="form-group col-sm-12">
+        <div class="card">
+          <div class="card-header"  style="color:#2c3e50">
+            ເຮັດວຽກຢູ່ຮ້ານອາຫານໃດແດ່
+          </div>
+          <div class="card-body  form-inline">
+            <div class="form-group col-sm-6">
+              <label for="exampleInputtext1">ຕຳແໜ່ງ</label>
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ຕຳແໜ່ງ" [(ngModel)]="position">
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="exampleInputtext1">ໄອດີຮ້ານອາຫານ</label>
+              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ໄອດີຮ້ານອາຫານ"  [(ngModel)]="restaurant_id">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group text-center">
+      <button type="submit" class="btn btn-primary" (click)="add_user()"><i  class="ion-android-add"></i> ເພີ່ມຜູ້ໃຊ້</button>
+    </div>
+  </div>
+</div>
