@@ -45,7 +45,7 @@ export const PAGES_MENU = [
             }
           },
           {
-            path: 'user-block',
+            path: 'user-acl',
             data: {
               menu: {
                 title: 'ກຳນົດການເຂົ້າເຖິງ',
