@@ -29,17 +29,14 @@ export class UserAddComponent implements OnInit {
 
   add_user() {
       const submitRepository = gql`
-        mutation ($name: String, $description: String, $fromDate: String, $toDate: String) {
-          addCupon(data:{
+        mutation ($name: String, $email: String, $password: String) {
+          addUser(data:{
             name:$name,
-            description: $description,
-            period: {
-              fromDate: $fromDate,
-              toDate: $toDate
-            }      
+            email: $email,
+            password: $password    
           }) {
             name
-            description
+            email
           }
         }
       `;
@@ -51,6 +48,8 @@ export class UserAddComponent implements OnInit {
       mutation: submitRepository,
       variables : {
         name: this.name,
+        email: this.email,
+        password: this.password
       }
       
     }).subscribe(({ data }) => {
