@@ -6,3 +6,16 @@
 * {
     font-family: Saysettha OT, "Lao Sans Pro", Ubuntu, Saysettha MX, Phetsarath OT, Helvetica, Arial, sans-serif;
 }
+
+.button_label {
+    color: white;
+    background-color: red;
+    padding: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.button_label:hover {
+    transform: scale(1.1);
+}
