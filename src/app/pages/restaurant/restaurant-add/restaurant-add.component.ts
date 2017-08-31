@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { NgUploaderOptions } from 'ngx-uploader';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
+
+import * as Cropper from 'cropperjs';
 
 @Component({
   selector: 'app-restaurant-add',
@@ -20,8 +22,8 @@ export class RestaurantAddComponent implements OnInit {
   restaurant_location_y: any;
   restaurant_tables: any;
   restaurant_seats: any;
-  restaurant_picture:any;
-  retaurant_operation_days_days:any;
+  restaurant_picture: any;
+  retaurant_operation_days_days: any;
 
   constructor(
     private apollo: Apollo,
@@ -29,6 +31,28 @@ export class RestaurantAddComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    var image = <HTMLImageElement>document.getElementById('image');
+    //console.log(image)
+    var cropper = new Cropper(image, {
+      aspectRatio: 1/ 1,
+      crop: function (e) {
+        console.log(e.detail.x);
+        console.log(e.detail.y);
+        console.log(e.detail.width);
+        console.log(e.detail.height);
+        console.log(e.detail.rotate);
+        console.log(e.detail.scaleX);
+        console.log(e.detail.scaleY);
+        console.log(e.detail.scaleY);
+      }
+    });
+
+    console.log(cropper)
+    var xxx = cropper.getCroppedCanvas();
+
+    console.log(xxx)
+
   }
 
   add_restaurant() {
@@ -52,6 +76,7 @@ export class RestaurantAddComponent implements OnInit {
           }
         }
       `;
+
 
 
     /* this.apollo.mutate({
