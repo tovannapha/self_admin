@@ -10,6 +10,8 @@ import { ApolloClient, createNetworkInterface } from 'apollo-client';
 import { ApolloModule } from 'apollo-angular';
 import { Apollo } from 'apollo-angular';
 
+import { AuthGuard } from './service/auth.service';
+
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -21,6 +23,19 @@ import { AppState, InternalStateType } from './app.service';
 import { GlobalState } from './global.state';
 import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule} from 'angularfire2/auth';
+
+//add Firebase config
+export const firebaseConfig = {
+  apiKey: "AIzaSyCOUZ0e_FYZdNT5t2cFz8gSZltlgrH6MP0",
+  authDomain: "selfordering-cafc3.firebaseapp.com",
+  databaseURL: "https://selfordering-cafc3.firebaseio.com",
+  projectId: "selfordering-cafc3",
+  storageBucket: "selfordering-cafc3.appspot.com",
+  messagingSenderId: "489460233359"
+};
 
 // Create the client as outlined above
 const client = new ApolloClient({
@@ -62,13 +77,16 @@ export type StoreType = {
     FormsModule,
     ReactiveFormsModule,
     ApolloModule.forRoot(provideClient),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
     NgaModule.forRoot(),
     NgbModule.forRoot(),
     PagesModule,
     routing
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    AuthGuard
   ]
 })
 
