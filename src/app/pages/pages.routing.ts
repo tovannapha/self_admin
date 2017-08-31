@@ -32,6 +32,7 @@ export const routes: Routes = [
       { path: 'maps', loadChildren: './maps/maps.module#MapsModule' },
       { path: 'new', loadChildren: './tables/tables.module#TablesModule' },
       { path: 'user', loadChildren: './user/user.module#UserModule', canActivate: [AuthGuard] },
+      //{ path: 'user', loadChildren: './user/user.module#UserModule'},
       { path: 'restaurant', loadChildren: './restaurant/restaurant.module#RestaurantModule', canActivate: [AuthGuard] },
       { path: 'event', loadChildren: './event/event.module#EventModule', canActivate: [AuthGuard] },
       { path: 'coupon', loadChildren: './coupon/coupon.module#CouponModule' , canActivate: [AuthGuard]},

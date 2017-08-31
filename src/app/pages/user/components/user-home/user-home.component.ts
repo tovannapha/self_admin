@@ -1,21 +1,54 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
-//import './ckeditor.loader';
-//import 'ckeditor';
+import { Apollo } from 'apollo-angular';
+import gql from 'graphql-tag';
 
 @Component({
   selector: 'user-home-component',
   templateUrl: './user-home.html',
   styleUrls: ['./user-home.scss']
 })
+export class UserHomeComponent implements OnInit {
+  users
 
-export class UserHomeComponent {
-  //public ckeditorContent:string = '<p>Hello CKEditor</p>';
-  /* public config = {
-    uiColor: '#F0F3F4',
-    height: '600',
-  }; */
+  constructor(
+    private apollo: Apollo,
+    private router: Router,
+  ) { }
 
-  constructor() {
+  ngOnInit() {
+    const queryinfo = gql`
+      query  {
+        users {
+          id
+          name
+          email
+        }
+      }
+    `;
+
+    this.apollo.watchQuery({
+      query: queryinfo
+    }).subscribe((x: any) => {
+      this.users = x.data.users
+      console.log(x.data.users)
+    });
   }
+
+  //
+  goToDetail() {
+    console.log("GOTO detail")
+  }
+
+  //
+  goToMenu() {
+    console.log("GOTO menu")
+  }
+
+  //
+  deteleteRestaurant() {
+    console.log("GOTO Delete")
+  }
+
 }

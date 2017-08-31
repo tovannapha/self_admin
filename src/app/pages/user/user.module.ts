@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 
 import { UserComponent } from './User.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
+import { UserAddComponent } from './components/user-add/user-add.component';
+import { UserBlockComponent } from './components/user-block/user-block.component';
 
 
 import { routing } from './User.routing';
@@ -18,6 +20,8 @@ import { UserAclComponent } from './user-acl/user-acl.component';
   declarations: [
     UserComponent,
     UserHomeComponent,
+    UserAddComponent,
+    UserBlockComponent,
     UserAclComponent
   ]
 })
