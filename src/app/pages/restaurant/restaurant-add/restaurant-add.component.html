@@ -108,7 +108,7 @@
         </div>
       </div>
 
-      <div class="form-group col-sm-12">
+      <div class="form-group col-sm-12 ">
         <div class="card" style="width:100%; ">
           <div class="card-header">
             <h3 style="color:#2c3e50">ຮູບພາບຮ້ານອາຫານ</h3>
@@ -120,11 +120,31 @@
           </div> -->
 
             <label for="file_photo" class="button_label">
-              ອັບໂຫຼດຮູບພາບ
-              <input type="file" id="file_photo" style="display:none;" (change)="fileChangeEvent($event)">
+              <i class="ion-android-image"></i> ອັບໂຫຼດຮູບພາບ
+              <input type="file" id="file_photo" style="display:none;" (change)="fileChangeEvent($event)" multiple>
             </label>
-            <div style="width:100%">
-              <img id="preview" src="" style="position:relative; width:50%;">
+            <div class="row justify-content-md-center">
+              <div class="col-md-3 col-xs-12" >
+                <div class="card" >
+                  <div class="card-header" >
+                    <h3 style="color:#2c3e50">ຮູບ 1 <a class="btn btn-primary" (click)="crop()" style="margin-top:-8px; color:white;" *ngIf="chooseImage"><i class="ion-scissors"></i> ຕັດຮູບ</a></h3>
+                  </div>
+                  <div class="card-body">
+                    <!--  <img id="preview" src="" style="width:90% !important; "> -->
+                    <img [src]="chooseImage" style=" width:100%;" class=" magictime puffIn" id="preview" >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-xs-12" *ngIf="imageResult">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 style="color:#2c3e50">ຮູບທີ່ຈະຖືກອັບໂຫຼດ</h3>
+                  </div>
+                  <div class="card-body">
+                    <img [src]="imageResult" style=" width:100%;" class=" magictime puffIn">
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>

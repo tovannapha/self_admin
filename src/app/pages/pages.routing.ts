@@ -3,6 +3,7 @@ import { Pages } from './pages.component';
 import { ModuleWithProviders } from '@angular/core';
 
 import { AuthGuard } from './../service/auth.service';
+import { AclGuard } from './../service/acl.service';
 
 // noinspection TypeScriptValidateTypes
 
@@ -22,7 +23,7 @@ export const routes: Routes = [
     component: Pages,
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule', canActivate: [AuthGuard] },
+      { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule', canActivate: [AuthGuard,AclGuard] },
       { path: 'editors', loadChildren: './editors/editors.module#EditorsModule' },
       { path: 'components', loadChildren: './components/components.module#ComponentsModule' },
       { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },

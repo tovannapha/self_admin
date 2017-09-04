@@ -27,6 +27,10 @@ export class RestaurantAddComponent implements OnInit {
   cropper: any;
 
   nnn: any;
+  result: any;
+  croppable: boolean = false;
+  imageResult:any;
+  chooseImage:any;
 
   constructor(
     private apollo: Apollo,
@@ -41,15 +45,7 @@ export class RestaurantAddComponent implements OnInit {
   ngOnInit() {
 
     var image = <HTMLImageElement>document.getElementById('image');
-    var cropBoxData;
-    var canvasData;
-
-    /* this.cropper = new Cropper(image, {
-      aspectRatio: 1 / 1
-    }); */
-
-    console.log(this.cropper)
-
+    this.result = document.getElementById('result');
 
   }
 
@@ -90,23 +86,68 @@ export class RestaurantAddComponent implements OnInit {
 
 
 
-  async fileChangeEvent(file: any) {
+  fileChangeEvent(file: any) {
     if (file.target.files && file.target.files[0]) {
       var reader = new FileReader();
+      console.log(file)
 
-      reader.addEventListener('load', (event:Event) => {
-        $('#preview').attr('src', (<any> event.target).result);
+      reader.addEventListener('load', (event: Event) => {
+        $('#preview').attr('src', (<any>event.target).result);
+        this.chooseImage = (<any>event.target).result;
+
         var image = <HTMLImageElement>document.getElementById('preview');
         this.cropper = new Cropper(image, {
           aspectRatio: 1 / 1,
-          minContainerWidth:50
+          //dragCrop: false,
+          responsive: true,
+          ready: function () {
+            this.croppable = true;
+          }
         });
       }, false);
 
-      
+
 
       reader.readAsDataURL(file.target.files[0]);
     }
   }
+
+
+  crop() {
+    console.log('work')
+    var croppedCanvas;
+    var roundedCanvas;
+
+
+    // Crop
+    croppedCanvas = this.cropper.getCroppedCanvas();
+
+    //////////////////////////////////////////
+    console.log('work111')
+    var canvas = document.createElement('canvas');
+    var context = canvas.getContext('2d');
+    var width = croppedCanvas.width;
+    var height = croppedCanvas.height;
+
+    canvas.width = width;
+    canvas.height = height;
+
+    context.imageSmoothingEnabled = true;
+    context.drawImage(croppedCanvas, 0, 0, width, height);
+    context.globalCompositeOperation = 'destination-in';
+    context.beginPath();
+    context.fill();
+    //////////////////////////////////////////
+
+
+    // Round
+    roundedCanvas = canvas;
+
+    this.imageResult = roundedCanvas.toDataURL();
+    console.log("result:",this.imageResult)
+  };
+
+
+
 
 }

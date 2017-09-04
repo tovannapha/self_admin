@@ -10,7 +10,11 @@ import { ApolloClient, createNetworkInterface } from 'apollo-client';
 import { ApolloModule } from 'apollo-angular';
 import { Apollo } from 'apollo-angular';
 
+/*
+ * Guard Security
+ */
 import { AuthGuard } from './service/auth.service';
+import { AclGuard } from './service/acl.service';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -86,7 +90,8 @@ export type StoreType = {
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS,
-    AuthGuard
+    AuthGuard,
+    AclGuard
   ]
 })
 
