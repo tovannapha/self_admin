@@ -83,17 +83,17 @@ export const PAGES_MENU = [
               }
             }
           },
-          {
+          /* {
             path: 'restaurant-type',
             data: {
               menu: {
                 title: 'ປະເພດຮ້ານອາຫານ',
               }
             }
-          }
+          } */
         ]
       },
-      {
+      /* {
         path: 'event',
         data: {
           menu: {
@@ -130,8 +130,8 @@ export const PAGES_MENU = [
             }
           }
         ]
-      },
-      {
+      }, */
+      /* {
         path: 'coupon',
         data: {
           menu: {
@@ -168,8 +168,8 @@ export const PAGES_MENU = [
             }
           }
         ]
-      },
-      {
+      }, */
+      /* {
         path: 'menu',
         data: {
           menu: {
@@ -180,8 +180,8 @@ export const PAGES_MENU = [
             order: 0
           }
         }
-      },
-      {
+      }, */
+      /* {
         path: 'order',
         data: {
           menu: {
@@ -192,7 +192,7 @@ export const PAGES_MENU = [
             order: 0
           }
         }
-      },
+      }, */
       {
         path: 'review',
         data: {

@@ -94,7 +94,7 @@ export class RestaurantAddComponent implements OnInit {
       reader.addEventListener('load', (event: Event) => {
         $('#preview').attr('src', (<any>event.target).result);
         this.chooseImage = (<any>event.target).result;
-
+        console.log((<any>event.target))
         var image = <HTMLImageElement>document.getElementById('preview');
         this.cropper = new Cropper(image, {
           aspectRatio: 1 / 1,

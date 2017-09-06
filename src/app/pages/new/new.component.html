@@ -1,3 +1,58 @@
 <p>
   new works!
 </p>
+
+<label for="file_photo" class="button_label" >
+  <i class="ion-android-image"></i> ອັບໂຫຼດຮູບພາບ
+  <input type="file" id="file_photo" style="display:none;" multiple (change)="fileChangeEvent($event)">
+</label>
+
+<br><br>
+
+<div *ngIf="imageResult">
+  <div class="row">
+    <div class="col-md-1" *ngFor="let x of imageResult;let n = index;">
+      <i class="ion-close-circled close delay02s magictime puffIn " (click)="close(n)"></i>
+      <img [src]="croppedResult[n]?.picUrl" style="width:100%;height:auto;top:0;" (click)="setFlag(n)" class="chooseImg{{n}}  magictime puffIn imgHover" data-toggle="modal" data-target="#EditImageModal"
+        *ngIf="croppedResult[n]?.picUrl">
+      <img [src]="imageResult[n]" style="width:100%;height:auto;top:0;" (click)="setFlag(n)" class="chooseImg{{n}}  magictime puffIn imgHover" data-toggle="modal" data-target="#EditImageModal"
+        *ngIf="!croppedResult[n]?.picUrl">
+      <br><br>
+      <div class="d-flex justify-content-center">
+      <p class="checktag" *ngIf="!croppedResult[n]?.flag" style="color:#e74c3c;"> <i class="ion-android-hand"></i> </p>
+      <p class="checktag" *ngIf="croppedResult[n]?.flag" style="color:#2ecc71;"> <i class="ion-android-done-all"></i> ສຳເລັດ</p>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="EditImageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog" role="document" >
+    <div class="modal-content" style="background-color:#34495e">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ຕົບແຕ່ງຮູບພາບ</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position:absolute; top:5px; right:10px;">
+            <i class="ion-close-circled "></i>
+          </button>
+      </div>
+      <div class="modal-body" style="  width: 100% !important;max-width: 100% !important; overflow:hidden;">
+        <button type="button" class="btn btn-default" (click)="edit(openFlag)" *ngIf="editButtonFlag" > <i class="ion-ios-crop-strong"></i> ແກ້ໄຂ </button>
+        <button type="button" class="btn btn-default" (click)="crop(openFlag)" *ngIf="cropFlag"  data-toggle="tooltip" data-placement="top" title="ຕັດຮູບ"> <i class="ion-scissors"></i> </button>
+        <button type="button" class="btn btn-default" (click)="rotate_left(openFlag)" *ngIf="cropFlag"  data-toggle="tooltip" data-placement="top" title="ໝຸນຊ້າຍ">  <i class="ion-ios-undo-outline"></i> </button>
+        <button type="button" class="btn btn-default" (click)="rotate_right(openFlag)" *ngIf="cropFlag"  data-toggle="tooltip" data-placement="top" title="ໝຸນຂວາ">  <i class="ion-ios-redo-outline"></i></button>
+        <br><br>
+        <img [src]="croppedResult[openFlag]?.picUrl"  (click)="edit(openFlag)" class="chooseModalImg{{openFlag}} imgModal"
+          *ngIf="croppedResult[openFlag]?.picUrl">
+        <img [src]="imageResult[openFlag]" (click)="edit(openFlag)" class="chooseModalImg{{openFlag}} imgModal"
+          *ngIf="!croppedResult[openFlag]?.picUrl">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">ຍົກເລີກ</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal"  (click)="crop(openFlag)">ສຳເລັດ</button>
+      </div>
+    </div>
+  </div>
+</div>

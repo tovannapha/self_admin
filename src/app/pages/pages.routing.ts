@@ -31,7 +31,7 @@ export const routes: Routes = [
       { path: 'forms', loadChildren: './forms/forms.module#FormsModule' },
       { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
       { path: 'maps', loadChildren: './maps/maps.module#MapsModule' },
-      { path: 'new', loadChildren: './tables/tables.module#TablesModule' },
+      { path: 'new', loadChildren: './new/new.module#NewModule' },
       { path: 'user', loadChildren: './user/user.module#UserModule', canActivate: [AuthGuard] },
       //{ path: 'user', loadChildren: './user/user.module#UserModule'},
       { path: 'restaurant', loadChildren: './restaurant/restaurant.module#RestaurantModule', canActivate: [AuthGuard] },
