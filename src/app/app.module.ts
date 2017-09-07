@@ -44,8 +44,8 @@ export const firebaseConfig = {
 // Create the client as outlined above
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
-    // uri: 'http://localhost:3000/graphql'
-    uri: 'http://54.169.228.139:3000/graphql'
+     uri: 'http://localhost:3000/graphql'
+    //uri: 'http://54.169.228.139:3000/graphql'
   }),
 });
 

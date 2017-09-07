@@ -5,157 +5,203 @@
   </h1>
 </div>
 <br><br>
+<!-- Start FORM -->
+<!-- ############ -->
+<form [formGroup]="restaurantAdd " novalidate>
+  <div class="card">
+    <div class="card-header">
+      <h3 style="color:#2c3e50"> <i class="ion-ios-paper-outline"></i>    ລາຍລະອຽດ</h3>
+    </div>
 
-<div class="card">
-  <div class="card-header">
-    <h3 style="color:#2c3e50">ລາຍລະອຽດ</h3>
-  </div>
-  <div class="card-body">
+    
+    <div class="card-body">
 
-    <div class="row">
-      <div class="form-group col-sm-6">
-        <label for="exampleInputtext1">ຊື່ຮ້ານ</label>
-        <input type="text" class="form-control" id="exampleInputName2" placeholder="ຊື່ຮ້ານ" [(ngModel)]="retaurant_name">
-      </div>
-      <div class="form-group col-sm-6">
-        <label for="exampleInputtext1">ປະເພດຮ້ານ</label>
-        <select class="form-control" id="exampleSelect1" [(ngModel)]="retaurant_type">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-      <div class="form-group col-sm-6">
-        <label for="exampleInputtext1">ໂທລະສັບ</label>
-        <input type="text" class="form-control" id="exampleInputtext2" placeholder="ໂທລະສັບ" [(ngModel)]="retaurant_phone">
-      </div>
-      <div class="form-group col-sm-12">
-        <div class="card">
-          <div class="card-header" style="color:#2c3e50">
-            ທີ່ຢູ່ຮ້ານ
-          </div>
-          <div class="card-body  form-inline">
-            <div class="form-group col-sm-12">
-              <label for="exampleInputtext1">ທີ່ຢູ່ຮ້ານ</label>
-              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ທີ່ຢູ່ຮ້ານ" [(ngModel)]="retaurant_address">
+      <!-- check form validator -->
+       <pre>Form value: {{ restaurantAdd.value | json }}</pre>
+      <p>Name value: {{ restaurantAdd.get('name').pristine}}</p>
+      <p>Name value: {{ restaurantAdd.get('name').touched}}</p>
+      <p>Form status: {{ restaurantAdd.status | json }}</p> 
+      
+      <div class="row">
+        <div class="form-group col-sm-6 " 
+        [ngClass]="{
+          'has-error': (!restaurantAdd.get('name').valid && restaurantAdd.get('name').touched), 
+          'has-success': restaurantAdd.get('name').valid && restaurantAdd.get('name').touched}">
+          <label for="exampleInputtext1"><i class="ion-ios-wineglass"></i> ຊື່ຮ້ານ</label>
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="ຊື່ຮ້ານ" formControlName="name">
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="exampleInputtext1">ປະເພດຮ້ານ</label>
+          <select class="form-control" id="exampleSelect1" formControlName="type">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="exampleInputtext1"><i class="ion-ios-telephone-outline"></i>    ໂທລະສັບ</label>
+          <input type="text" class="form-control" id="exampleInputtext2" placeholder="ໂທລະສັບ" formControlName="phone">
+        </div>
+        <div class="form-group col-sm-12">
+          <div class="card">
+            <div class="card-header" style="color:#2c3e50">
+                <i class="ion-ios-paper-outline"></i>  ທີ່ຢູ່ຮ້ານ
             </div>
-            <div class="form-group col-sm-6">
-              <label for="exampleInputtext1">ເສັ້ນແວງ</label>
-              <input type="text" class="form-control" id="exampleInputtext2" placeholder="X" [(ngModel)]="retaurant_location_x">
-            </div>
-            <div class="form-group col-sm-6">
-              <label for="exampleInputtext1">ເສັ້ນຂະໜານ</label>
-              <input type="text" class="form-control" id="exampleInputtext2" placeholder="Y" [(ngModel)]="retaurant_location_y">
+            <div class="card-body  form-inline">
+              <div class="form-group col-sm-12">
+                <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ທີ່ຢູ່ຮ້ານ</label>
+                <input type="text" class="form-control" id="exampleInputtext2" placeholder="ທີ່ຢູ່ຮ້ານ" formControlName="address">
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ເສັ້ນແວງ</label>
+                <input type="text" class="form-control" id="exampleInputtext2" placeholder="X" formControlName="location_x">
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ເສັ້ນຂະໜານ</label>
+                <input type="text" class="form-control" id="exampleInputtext2" placeholder="Y" formControlName="location_y">
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="form-group col-sm-12">
-        <div class="card">
-          <div class="card-header">
-            <h3 style="color:#2c3e50">ຄວາມຈຸຂອງຮ້ານ</h3>
-          </div>
-          <div class="card-body  form-inline">
-            <div class="form-group col-sm-6">
-              <label for="exampleInputtext1">ໂຕະ</label>
-              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ໂຕະ" [(ngModel)]="retaurant_tables">
+        <div class="form-group col-sm-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 style="color:#2c3e50"><i class="ion-ios-paper-outline"></i>  ຄວາມຈຸຂອງຮ້ານ</h3>
             </div>
-            <div class="form-group col-sm-6">
-              <label for="exampleInputtext1">ທີ່ນັ່ງ</label>
-              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ທີ່ນັ່ງ" [(ngModel)]="retaurant_seats">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group col-sm-12">
-        <div class="card">
-          <div class="card-header">
-            <h3 style="color:#2c3e50">ບ່ອນຈອດລົດ</h3>
-          </div>
-          <div class="card-body  form-inline">
-            <div class="form-group col-sm-6">
-              <label for="exampleInputtext1">ຈັກຄັນ</label>
-              <input type="text" class="form-control" id="exampleInputtext2" [(ngModel)]="retaurant_parkinglot_capacity">
+            <div class="card-body  form-inline">
+              <div class="form-group col-sm-6">
+                <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ໂຕະ</label>
+                <input type="text" class="form-control" id="exampleInputtext2" placeholder="ໂຕະ" formControlName="tables">
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ທີ່ນັ່ງ</label>
+                <input type="text" class="form-control" id="exampleInputtext2" placeholder="ທີ່ນັ່ງ" formControlName="seats">
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-
-      <div class="form-group col-sm-12">
-        <div class="card">
-          <div class="card-header">
-            <h3 style="color:#2c3e50">ຂໍ້ມູນອື່ນໆ</h3>
-          </div>
-          <div class="card-body  form-inline">
-            <div class="form-group col-sm-6">
-              <label for="exampleInputtext1">ມື້ເປີດກິດຈະການ</label>
-              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ມື້ເປີດກິດຈະການ" [(ngModel)]="retaurant_operation_days_days">
+        <div class="form-group col-sm-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 style="color:#2c3e50"><i class="ion-ios-paper-outline"></i>  ບ່ອນຈອດລົດ</h3>
             </div>
-            <div class="form-group col-sm-6">
-              <label for="exampleInputtext1">ໃຊ້ບັດເຄຼດິດໄດ້ບໍ</label>
-              <input type="text" class="form-control" id="exampleInputtext2" placeholder="X">
-            </div>
-            <div class="form-group col-sm-6">
-              <label for="exampleInputtext1">ຈຸດພິເສດອື່ນໆ</label>
-              <input type="text" class="form-control" id="exampleInputtext2" placeholder="ຈຸດພິເສດອື່ນໆ">
+            <div class="card-body  form-inline">
+              <div class="form-group col-sm-6">
+                <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ຈັກຄັນ</label>
+                <input type="text" class="form-control" id="exampleInputtext2" formControlName="parkinglot_capacity">
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="form-group col-sm-12 ">
-        <div class="card" style="width:100%; ">
-          <div class="card-header">
-            <h3 style="color:#2c3e50">ຮູບພາບຮ້ານອາຫານ</h3>
+
+        <div class="form-group col-sm-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 style="color:#2c3e50"><i class="ion-ios-paper-outline"></i>  ຂໍ້ມູນອື່ນໆ</h3>
+            </div>
+            <div class="card-body  form-inline">
+              <div class="form-group col-sm-6">
+                <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ມື້ເປີດກິດຈະການ</label>
+                <input type="text" class="form-control" id="exampleInputtext2" placeholder="ມື້ເປີດກິດຈະການ" formControlName="operation_days_days">
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ໃຊ້ບັດເຄຼດິດໄດ້ບໍ</label>
+                <input type="text" class="form-control" id="exampleInputtext2" placeholder="X" formControlName="cards">
+              </div>
+              <div class="form-group col-sm-12">
+                <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ຈຸດພິເສດອື່ນໆ</label>
+                <input type="text" class="form-control" id="exampleInputtext2" placeholder="ຈຸດພິເສດອື່ນໆ" formControlName="feature">
+              </div>
+            </div>
           </div>
-          <div class="card-body">
+        </div>
 
-            <!-- <div class="row">
-            <input type="file" (change)="fileChangeEvent($event)" placeholder="ອັບໂຫຼດຮູບພາບ" />
-          </div> -->
+        <div class="form-group col-sm-12 ">
+          <div class="card" style="width:100%; ">
+            <div class="card-header">
+              <h3 style="color:#2c3e50"><i class="ion-ios-paper-outline"></i>  ຮູບພາບຮ້ານອາຫານ</h3>
+            </div>
+            <div class="card-body">
 
-            <label for="file_photo" class="button_label">
-              <i class="ion-android-image"></i> ອັບໂຫຼດຮູບພາບ
-              <input type="file" id="file_photo" style="display:none;" (change)="fileChangeEvent($event)" multiple>
-            </label>
-            <div class="row justify-content-md-center">
-              <div class="col-md-3 col-xs-12" >
-                <div class="card" >
-                  <div class="card-header" >
-                    <h3 style="color:#2c3e50">ຮູບ 1 <a class="btn btn-primary" (click)="crop()" style="margin-top:-8px; color:white;" *ngIf="chooseImage"><i class="ion-scissors"></i> ຕັດຮູບ</a></h3>
-                  </div>
-                  <div class="card-body">
-                    <!--  <img id="preview" src="" style="width:90% !important; "> -->
-                    <img [src]="chooseImage" style=" width:100%;" class=" magictime puffIn" id="preview" >
+              <label for="file_photo" class="button_label">
+                  <i class="ion-android-image"></i> ອັບໂຫຼດຮູບພາບ
+                  <input type="file" id="file_photo" style="display:none;" multiple (change)="fileChangeEvent($event)">
+                </label>
+
+              <br><br>
+
+              <div *ngIf="imageResult">
+                <div class="row">
+                  <div class="col-md-1" *ngFor="let x of imageResult;let n = index;">
+                    <i class="ion-close-circled close delay02s magictime puffIn " (click)="close(n)"></i>
+                    <img [src]="croppedResult[n]?.picUrl" style="width:100%;height:auto;top:0;" (click)="setFlag(n)" class="chooseImg{{n}}  magictime puffIn imgHover"
+                      data-toggle="modal" data-target="#EditImageModal" *ngIf="croppedResult[n]?.picUrl">
+                    <img [src]="imageResult[n]" style="width:100%;height:auto;top:0;" (click)="setFlag(n)" class="chooseImg{{n}}  magictime puffIn imgHover"
+                      data-toggle="modal" data-target="#EditImageModal" *ngIf="!croppedResult[n]?.picUrl">
+                    <br><br>
+                    <div class="d-flex justify-content-center">
+                      <p class="checktag" *ngIf="!croppedResult[n]?.flag" style="color:#e74c3c;"> <i class="ion-android-hand"></i> </p>
+                      <p class="checktag" *ngIf="croppedResult[n]?.flag" style="color:#2ecc71;"> <i class="ion-android-done-all"></i> ສຳເລັດ</p>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-3 col-xs-12" *ngIf="imageResult">
-                <div class="card">
-                  <div class="card-header">
-                    <h3 style="color:#2c3e50">ຮູບທີ່ຈະຖືກອັບໂຫຼດ</h3>
-                  </div>
-                  <div class="card-body">
-                    <img [src]="imageResult" style=" width:100%;" class=" magictime puffIn">
-                  </div>
-                </div>
-              </div>
-            </div>
 
+
+            </div>
           </div>
         </div>
+
+
+
       </div>
 
+    
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary" (click)="add_restaurant()" [disabled]="!restaurantAdd.valid"><i  class="ion-android-add"></i> ເພີ່ມຮ້ານອາຫານ</button>
+      </div>
 
 
     </div>
-    <div class="form-group text-center">
-      <button type="submit" class="btn btn-primary" (click)="add_restaurant()"><i  class="ion-android-add"></i> ເພີ່ມຮ້ານອາຫານ</button>
+  </div>
+</form>
+<!-- END FORM -->
+<!-- ####### -->
+
+
+
+
+<!-- Edit Image Modal -->
+<div class="modal fade" id="EditImageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-color:#34495e">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ຕົບແຕ່ງຮູບພາບ</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position:absolute; top:5px; right:10px;">
+            <i class="ion-close-circled "></i>
+          </button>
+      </div>
+      <div class="modal-body" style="  width: 100% !important;max-width: 100% !important; overflow:hidden;">
+        <button type="button" class="btn btn-default" (click)="edit(openFlag)" *ngIf="editButtonFlag"> <i class="ion-ios-crop-strong"></i> ແກ້ໄຂ </button>
+        <button type="button" class="btn btn-default" (click)="crop(openFlag)" *ngIf="cropFlag" data-toggle="tooltip" data-placement="top"
+          title="ຕັດຮູບ"> <i class="ion-scissors"></i> </button>
+        <button type="button" class="btn btn-default" (click)="rotate_left(openFlag)" *ngIf="cropFlag" data-toggle="tooltip" data-placement="top"
+          title="ໝຸນຊ້າຍ">  <i class="ion-ios-undo-outline"></i> </button>
+        <button type="button" class="btn btn-default" (click)="rotate_right(openFlag)" *ngIf="cropFlag" data-toggle="tooltip" data-placement="top"
+          title="ໝຸນຂວາ">  <i class="ion-ios-redo-outline"></i></button>
+        <br><br>
+        <img [src]="croppedResult[openFlag]?.picUrl" (click)="edit(openFlag)" class="chooseModalImg{{openFlag}} imgModal" *ngIf="croppedResult[openFlag]?.picUrl">
+        <img [src]="imageResult[openFlag]" (click)="edit(openFlag)" class="chooseModalImg{{openFlag}} imgModal" *ngIf="!croppedResult[openFlag]?.picUrl">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">ຍົກເລີກ</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="crop(openFlag)">ສຳເລັດ</button>
+      </div>
     </div>
   </div>
 </div>

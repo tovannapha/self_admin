@@ -7,6 +7,13 @@
     font-family: Saysettha OT, "Lao Sans Pro", Ubuntu, Saysettha MX, Phetsarath OT, Helvetica, Arial, sans-serif;
 }
 
+img {
+  max-width: 100% !important;
+  overflow:hidden;
+  cursor: pointer;
+}
+
+
 .button_label {
     color: white;
     background-color: red;
@@ -49,6 +56,47 @@ Copyright (c) 2016 Christian Pucci
     transform: scale(1,1);
     filter: blur(0px);
   }
+}
+
+
+
+.close {
+  position: absolute;
+  top: -15px;
+  right: 0;
+  z-index: 777;
+}
+
+.check {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+}
+
+.checktag {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  line-height: 1.5;
+  padding: 5px;
+}
+
+
+.delay02s {
+  animation-delay: 0.5s;
+}
+
+.button_label {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: solid 1px white;
+  padding: 6px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.button_label:hover {
+  transform: scale(1.1);
 }
 
 

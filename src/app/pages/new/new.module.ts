@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { NewComponent } from './new.component';
 import { routing } from './new.routing';
+import { Test1Component } from './test1/test1.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { routing } from './new.routing';
     routing
   ],
   declarations: [
-    NewComponent
+    NewComponent,
+    Test1Component
   ]
 })
 export class NewModule {}

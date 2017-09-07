@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgaModule } from '../../theme/nga.module';
 
 import { RestaurantComponent } from './Restaurant.component';
@@ -18,6 +18,7 @@ import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.compo
         CommonModule,
         FormsModule,
         NgaModule,
+        ReactiveFormsModule,
         routing
     ],
     declarations: [
