@@ -1,3 +1,12 @@
+<!-- Add breadcrumb -->
+<div style="position:absolute;right:20px;">
+    <ol class="breadcrumb" style=" background-color:rgba(0, 0, 0, 0.3)">
+      <li class="breadcrumb-item"><a href="/#/admin/"  style="color:aliceblue;">ໜ້າຫຼັກ</a></li>
+      <li class="breadcrumb-item active"  style="color:aliceblue;">ຈັດການຮ້ານອາຫານ</li>
+    </ol>
+  </div>
+  
+
 <br>
 <div class="kameleon-icon">
   <h1>
@@ -23,7 +32,7 @@
         <td (click)="goToDetail(item)"  style="cursor: pointer" >{{ item.name }}</td>
         <td>+856-20-222XXXX</td>
         <td>ບ້ານນາຄຳ ເມືອງສີໂຄດຕະບອງ</td>
-        <td><button type="button" class="btn btn-default" (click)="goToMenu()">ຈັດການເມນູ</button> <button type="button" class="btn btn-default">ພະນັກງານ</button> <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="ແກ້ໄຂຮ້ານອາຫານ" (click)="editRestaurant()"><i class="ion-ios-compose-outline"></i></button> <button type="button" class="btn btn-danger"  data-toggle="tooltip" data-placement="top" title="ລຶບຮ້ານອາຫານ" (click)="deteleteRestaurant()"><i class="ion-ios-trash-outline"></i></button></td>
+        <td><button type="button" class="btn btn-default" (click)="goToMenu()">ຈັດການເມນູ</button> <button type="button" class="btn btn-default">ພະນັກງານ</button> <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="ແກ້ໄຂຮ້ານອາຫານ" (click)="editRestaurant(item)"><i class="ion-ios-compose-outline"></i></button> <button type="button" class="btn btn-danger"  data-toggle="tooltip" data-placement="top" title="ລຶບຮ້ານອາຫານ" (click)="deteleteRestaurant()"><i class="ion-ios-trash-outline"></i></button></td>
       </tr>
     </tbody>
   </table>

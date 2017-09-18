@@ -1,0 +1,194 @@
+<!-- Add breadcrumb -->
+<div style="position:absolute;right:20px;">
+  <ol class="breadcrumb" style=" background-color:rgba(0, 0, 0, 0.3)">
+    <li class="breadcrumb-item"><a href="/#/admin/" style="color:aliceblue;">ໜ້າຫຼັກ</a></li>
+    <li class="breadcrumb-item active" style="color:aliceblue;"><a href="/#/admin/user/user-acl" style="color:aliceblue;">ກຳນົດການເຂົ້າເຖິງ</a></li>
+    <li class="breadcrumb-item active" style="color:aliceblue;">ຈັດການ Resources</li>
+  </ol>
+</div>
+
+
+<br>
+<div class="kameleon-icon">
+  <h1>
+    <img src="assets/img/theme/icon/kameleon/Burglar.svg"> ຈັດການ Resource ຂອງ ACL
+  </h1>
+</div>
+<br>
+
+<button type="button" class="btn btn-default" data-toggle="collapse" href="#collapse-create-resources" aria-expanded="false">ເພີ່ມ Resources ໃໝ່</button>
+<!-- User Detail Collapse -->
+<form [formGroup]="aclAdd " novalidate>
+  <div id="collapse-create-resources" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion"
+    style="margin-top:10px;color:#fff">
+    <div class="card-body">
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label for="exampleInputtext1">ຊື່ແອັບ</label>
+          <select class="form-control" id="exampleFormControlSelect1" formControlName="app_name">
+            <option selected>--ເລືອກແອັບ--</option>
+            <option >SelfOrder</option>
+          </select>
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="exampleInputtext1">Backend or Frontend</label>
+          <select class="form-control" id="exampleFormControlSelect1" formControlName="backfront">
+                    <option selected>--Front or Back end--</option>
+                    <option >FrontEnd</option>
+                    <option >BackEnd</option>
+                  </select>
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="exampleInputtext1">ຊື່ Resource</label>
+          <input type="text" class="form-control" id="exampleInputtext2" placeholder="ຊື່ Resource" formControlName="resource_name">
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="exampleInputtext1">code</label>
+          <input type="text" class="form-control" id="exampleInputtext2" placeholder="code" formControlName="code">
+        </div>
+        <div class="form-group col-sm-12">
+          <label for="exampleInputtext1">ອະທິບາຍກ່ຽວກັບ Resources</label>
+          <textarea class="form-control" id="exampleInputtext2" placeholder="ລາຍລະອຽດ" formControlName="description"></textarea>
+        </div>
+
+      </div>
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary" (click)="add_acl_resources()"><i  class="ion-android-add"></i> ເພີ່ມ Resource</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- ###User Detail Collapse -->
+<br><br>
+<ul class="list-group" style="border:#fff 1px solid; ">
+  <li class="list-group-item" style="color:#2c3e50; background-color: rgba(0,0,0,0)">
+    <div class="container">
+      <div class="row">
+        <div class="col-1" style="color:#fff">
+          #
+        </div>
+        <div class="col-2" style="color:#fff">
+          <b><i class="ion-ios-telephone"></i> App Name</b>
+        </div>
+        <div class="col-2" style="color:#fff">
+          <b><i class="ion-ios-telephone"></i> BackFront</b>
+        </div>
+        <div class="col-4" style="color:#fff">
+          <b><i class="ion-android-share-alt"></i> Resource Name</b>
+        </div>
+        <div class="col-3" style="color:#fff">
+          <b><i class="ion-android-apps"></i> ຈັດການ</b>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item border" style="color:#2c3e50; background-color: rgba(0,0,0,0)" *ngFor="let item of aclResources; let i = index">
+    <div class="container">
+      <div class="row">
+        <div class="col-1" style="color:#fff">
+          {{i+1}}
+        </div>
+        <div class="col-2" style="color:#fff">
+          {{item.app_name}}
+        </div>
+        <div class="col-2" style="color:#fff">
+          {{item.backfront}}
+        </div>
+        <div class="col-4" style="color:#fff">
+          {{item.resource_name}}
+        </div>
+        <div class="col-3">
+          <a class="btn btn-default no-links"  data-toggle="collapse" href="#collapse-edit-{{i}}" (click)="setEditFlag(i)">ແກ້ໄຂ</a>
+          <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="ລຶບຮ້ານຜູ້ໃຊ້" (click)="setModalFlag(i)"
+            data-toggle="modal" data-target="#DeleteResourceModal"><i class="ion-ios-trash-outline"></i></button>
+          <a class="collapsed btn btn-default no-links" data-toggle="collapse" href="#collapse-detail-{{i}}" aria-expanded="false" aria-controls="collapseThree"><i class="ion-chevron-down"></i></a>
+        </div>
+      </div>
+    </div>
+    <br>
+    <!-- Resources Detail Collapse -->
+    <div id="collapse-detail-{{i}}" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion" style="margin-top:10px;color:#fff">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+        non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+        aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+        labore sustainable VHS.
+
+      </div>
+    </div>
+    <!-- ###Resources Edit Collapse -->
+    <div id="accordion" data-children=".item">
+    <div id="collapse-edit-{{i}}" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion" style="margin-top:10px;color:#fff">
+        <div class="card-body ">
+          <form [formGroup]="aclEdit " novalidate (ngSubmit)="editResource(i)">
+  
+            <div class="row">
+              <div class="form-group col-sm-6">
+                <label for="exampleInputtext1">ຊື່ແອັບ</label>
+                <select class="form-control" id="exampleFormControlSelect1" formControlName="app_name" value="{{item.app_name}}">
+                        <option selected>--ເລືອກແອັບ--</option>
+                        <option >SelfOrder</option>
+                      </select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="exampleInputtext1">Backend or Frontend</label>
+                <select class="form-control" id="exampleFormControlSelect1" formControlName="backfront"  value="{{item.backfront}}">
+                                <option selected>--Front or Back end--</option>
+                                <option >FrontEnd</option>
+                                <option >BackEnd</option>
+                              </select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="exampleInputtext1">ຊື່ Resource</label>
+                <input type="text" class="form-control" id="exampleInputtext2" placeholder="ຊື່ Resource" formControlName="resource_name"  value="{{item.resource_name}}">
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="exampleInputtext1">code</label>
+                <input type="text" class="form-control" id="exampleInputtext2" placeholder="code" formControlName="code">
+              </div>
+              <div class="form-group col-sm-12">
+                <label for="exampleInputtext1">ອະທິບາຍກ່ຽວກັບ Resources</label>
+                <textarea class="form-control" id="exampleInputtext2" placeholder="ລາຍລະອຽດ" formControlName="description" value="{{item.description}}"></textarea>
+              </div>
+  
+            </div>
+            <div class="form-group text-center">
+              <button type="submit" class="btn btn-primary"><i  class="ion-android-add"></i> ແກ້ໄຂ Resource</button>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+      <!-- ###Resources Edit Collapse -->
+
+    <!-- Modal For confirm User Deleting -->
+    <div class="modal fade" id="DeleteResourceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">ທ່ານຕ້ອງການລຶບຜູ້ໃຊ້ນີ້ບໍ່?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            {{modalFlag}}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">ຍົກເລີກ</button>
+            <button type="button" class="btn btn-primary" (click)="deleteResource()" data-dismiss="modal">ຕົງລົງ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ##Modal For confirm User Deleting -->
+  </li>
+</ul>
+
+
+
+

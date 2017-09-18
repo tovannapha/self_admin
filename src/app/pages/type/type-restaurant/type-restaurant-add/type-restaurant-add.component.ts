@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
@@ -18,6 +19,7 @@ export class TypeRestaurantAddComponent implements OnInit {
 
   constructor(
     private apollo: Apollo,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -47,6 +49,7 @@ export class TypeRestaurantAddComponent implements OnInit {
       }
     }).subscribe(({ data }) => {
       console.log(data)
+      this.router.navigate(['/admin/type/type-restaurant/type-restaurant-home']);
     });
   }
 

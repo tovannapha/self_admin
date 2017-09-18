@@ -1,0 +1,102 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url(http://fonts.googleapis.com/earlyaccess/laosanspro.css);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+* {
+    font-family: Saysettha OT, "Lao Sans Pro", Ubuntu, Saysettha MX, Phetsarath OT, Helvetica, Arial, sans-serif;
+}
+
+img {
+  max-width: 100% !important;
+  overflow:hidden;
+  cursor: pointer;
+}
+
+
+.button_label {
+    color: white;
+    background-color: red;
+    padding: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.button_label:hover {
+    transform: scale(1.1);
+}
+
+
+
+/*
+Magic - Ver 1.2.0 - https://minimamente.com
+Licensed under the MIT license
+Copyright (c) 2016 Christian Pucci
+*/
+.magictime {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.puffIn {
+  animation-name: puffIn;
+}
+@keyframes puffIn {
+  0% {
+    opacity: 0;
+    transform-origin: 50% 50%;
+    transform: scale(2,2);
+    filter: blur(2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform: scale(1,1);
+    filter: blur(0px);
+  }
+}
+
+
+
+.close {
+  position: absolute;
+  top: -15px;
+  right: 0;
+  z-index: 777;
+}
+
+.check {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+}
+
+.checktag {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  line-height: 1.5;
+  padding: 5px;
+}
+
+
+.delay02s {
+  animation-delay: 0.5s;
+}
+
+.button_label {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: solid 1px white;
+  padding: 6px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.button_label:hover {
+  transform: scale(1.1);
+}
+
+

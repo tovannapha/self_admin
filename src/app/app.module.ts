@@ -6,7 +6,8 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 
-import { ApolloClient, createNetworkInterface } from 'apollo-client';
+import { ApolloClient } from 'apollo-client';
+import { createNetworkInterface } from 'apollo-upload-client'
 import { ApolloModule } from 'apollo-angular';
 import { Apollo } from 'apollo-angular';
 
@@ -29,7 +30,8 @@ import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule} from 'angularfire2/auth';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 //add Firebase config
 export const firebaseConfig = {
@@ -44,7 +46,7 @@ export const firebaseConfig = {
 // Create the client as outlined above
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
-     uri: 'http://localhost:3000/graphql'
+    uri: 'http://localhost:3000/graphql'
     //uri: 'http://54.169.228.139:3000/graphql'
   }),
 });
@@ -83,6 +85,7 @@ export type StoreType = {
     ApolloModule.forRoot(provideClient),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
     NgaModule.forRoot(),
     NgbModule.forRoot(),
     PagesModule,

@@ -1,6 +1,5 @@
 import { Component, OnInit, ElementRef, Renderer, ViewChild } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators, FormControl } from '@angular/forms';
-
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { NgUploaderOptions } from 'ngx-uploader';
@@ -8,19 +7,20 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { LaoAddress } from '../../../static_param/lao_address';
 
-
 import * as Cropper from 'cropperjs';
-
 import * as _ from "lodash"
 
+
 @Component({
-  selector: 'app-restaurant-add',
-  templateUrl: './restaurant-add.component.html',
-  styleUrls: ['./restaurant-add.component.scss']
+  selector: 'app-restaurant-edit',
+  templateUrl: './restaurant-edit.component.html',
+  styleUrls: ['./restaurant-edit.component.scss']
 })
-export class RestaurantAddComponent implements OnInit {
+export class RestaurantEditComponent implements OnInit {
 
 
+
+  //Define Reactiveform
   //Define Reactiveform
   restaurantAdd = new FormGroup({
     name: new FormControl(),
@@ -54,6 +54,7 @@ export class RestaurantAddComponent implements OnInit {
 
   //Init Restaurants Type 
   initResTypes: any;
+  initRes: any;
 
   //Init Operation Days
   operationDays: any = [];
@@ -61,6 +62,8 @@ export class RestaurantAddComponent implements OnInit {
   //init date now
   dataNow: any;
 
+  /*  Define param for Url param*/
+  id: String;
 
 
   constructor(
@@ -68,11 +71,12 @@ export class RestaurantAddComponent implements OnInit {
     private router: Router,
     private renderer: Renderer,
     private fb: FormBuilder,
+    private activatedRoute: ActivatedRoute,
   ) {
     //Setting Validator for RestaurantAdd
     this.restaurantAdd = this.fb.group({
-      name: ['', Validators.required],
-      type: ['', Validators.required],
+      name:"",
+      type:"",
       phone: "",
       province: ['', Validators.required],
       district: ['', Validators.required],
@@ -92,24 +96,59 @@ export class RestaurantAddComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    /* 
+      get params from Url
+    */
+    this.activatedRoute.params.subscribe((params) => {
+      this.id = params.id;
+    });
+
+    /* 
+      get params from Url
+    */
+    this.ADDRESS = LaoAddress;
+
     /* Get Restaurant Type */
-    const initResTypeQl = gql`{
-      restaurant_types {
-        id
-        name
+    const initResTypeQl = gql`
+      query xxx($id:ID!) {
+        restaurant_types {
+          id
+          name
+        }
+
+        restaurant(id:$id) {
+          id
+          name
+          phones
+          location{
+            x
+            y
+          }
+          address {
+            province
+            district
+            detail
+          }
+          type{
+            name
+          }
+        }
       }
-    }`
+    `
 
     this.apollo.watchQuery({
-      query: initResTypeQl
+      query: initResTypeQl,
+      variables: {
+        id: this.id
+      }
     }).subscribe((x: any) => {
 
-      //console.log(x.data.restaurant_types)
+      console.log(x.data)
+      this.initRes = x.data.restaurant;
       this.initResTypes = x.data.restaurant_types;
     });
 
-
-    this.ADDRESS = LaoAddress;
   }
 
 
@@ -119,8 +158,6 @@ export class RestaurantAddComponent implements OnInit {
   /* Fire Restaurant to Apollo */
   /*  */
   add_restaurant() {
-
-    console.log(this.dataNow.getTime())
 
     /* //Set Image form for upload */
     for (let ii = 0; ii < this.croppedResult.length; ii++) {
@@ -144,8 +181,8 @@ export class RestaurantAddComponent implements OnInit {
 
     //upload format
     var uploadFormat = {
-      name: this.restaurantAdd.value.name,
-      type: this.restaurantAdd.value.type,
+      name: this.restaurantAdd.value.name || this.initRes.name,
+      type: this.restaurantAdd.value.type || this.initRes.type,
       address: {
         province: this.restaurantAdd.value.province,
         district: this.restaurantAdd.value.district,
@@ -156,7 +193,6 @@ export class RestaurantAddComponent implements OnInit {
         y: this.restaurantAdd.value.location_y
       },
       phones: [this.restaurantAdd.value.phone],
-      pictures: this.restaurantAdd.value.pictures,
       operation_days: {
         days: this.restaurantAdd.value.operation_days_days,
         time: ""
@@ -173,14 +209,10 @@ export class RestaurantAddComponent implements OnInit {
         capacity: this.restaurantAdd.value.parkinglot_capacity || 0
       },
     }
-
-
-    console.log(uploadFormat)
-
     /* //Set Apollo mutation  */
     const mutationinfo = gql`
-      mutation ($data : RestaurantInput!) {
-        addRestaurant(data:$data) {
+      mutation ($id:ID! , $data : RestaurantInput!) {
+        editRestaurant(id:$id, data:$data) {
           id
           name
         }
@@ -193,11 +225,12 @@ export class RestaurantAddComponent implements OnInit {
     this.apollo.mutate({
       mutation: mutationinfo,
       variables: {
-        data: uploadFormat
+        data: uploadFormat,
+        id:this.id
       }
     }).subscribe(({ data }: any) => {
       console.log(data)
-      this.router.navigate(['/admin/restaurant/restaurant-detail/', data.addRestaurant.id]);
+      this.router.navigate(['/admin/restaurant/restaurant-detail/', this.id]);
     });
 
 
@@ -419,6 +452,8 @@ export class RestaurantAddComponent implements OnInit {
   }
 
 
+
+
   /*  */
   //init Address
   /*  */
@@ -434,4 +469,5 @@ export class RestaurantAddComponent implements OnInit {
     }
   }
 
-}//end constructor
+
+}

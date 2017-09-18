@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import * as Cropper from 'cropperjs';
 
+
+import { LaoAddress } from '../../static_param/lao_address';
+
 @Component({
   selector: 'app-new',
   templateUrl: './new.component.html',
@@ -14,7 +17,7 @@ export class NewComponent implements OnInit {
   cropper: any = [];
   cropFlag: any;
   openFlag: any;
-  editButtonFlag:any = false;
+  editButtonFlag: any = false;
 
   constructor() {
 
@@ -22,6 +25,7 @@ export class NewComponent implements OnInit {
 
   ngOnInit() {
 
+    console.log(LaoAddress)
 
 
   }
@@ -102,21 +106,21 @@ export class NewComponent implements OnInit {
   }
 
 
-  rotate_left(){
+  rotate_left() {
     console.log("WPRL")
     this.cropper[this.openFlag].rotate(-90);
   }
 
-  rotate_right(){
+  rotate_right() {
     console.log("WPRL")
     this.cropper[this.openFlag].rotate(90);
   }
 
   crop() {
-    
+
     //Display Edit button
     this.editButtonFlag = true;
-  
+
     var croppedCanvas;
     var roundedCanvas;
 
@@ -142,7 +146,7 @@ export class NewComponent implements OnInit {
     context.fill();
     //set Canvas
     roundedCanvas = canvas;
-    
+
     ///////////////////////////////////////////
 
 
@@ -152,7 +156,7 @@ export class NewComponent implements OnInit {
     // close cropFlag
     this.cropFlag = false;
 
-    
+
     //set Data for croppedResult
     var data = {
       flag: true,

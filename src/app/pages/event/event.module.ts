@@ -17,7 +17,7 @@ import { routing } from './event.routing';
         routing
     ],
     declarations: [
-        EventComponent,
+        //EventComponent,
         EventHomeComponent,
         EventAddComponent,
         EventTypeComponent

@@ -36,15 +36,6 @@ export const PAGES_MENU = [
             }
           },
           {
-            path: 'user-add',
-            data: {
-              menu: {
-                title: 'ເພີ່ມຜູ້ໃຊ້',
-                icon: 'ion-person-add',
-              }
-            }
-          },
-          {
             path: 'user-acl',
             data: {
               menu: {

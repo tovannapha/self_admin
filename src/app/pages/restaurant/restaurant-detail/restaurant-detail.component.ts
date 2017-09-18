@@ -29,6 +29,9 @@ export class RestaurantDetailComponent implements OnInit {
 
   ngOnInit() {
 
+    /* 
+      get params from Url
+    */
     this.activatedRoute.params.subscribe((params) => {
       this.id = params.id;
     });
@@ -39,6 +42,19 @@ export class RestaurantDetailComponent implements OnInit {
             restaurant(id:$id) {
               id
               name
+              phones
+              location{
+                x
+                y
+              }
+              address {
+                province
+                district
+                detail
+              }
+              type{
+                name
+              }
             }
           }
         `;
@@ -70,7 +86,7 @@ export class RestaurantDetailComponent implements OnInit {
     });
   }
 
-  goToMenu(){
+  goToMenu() {
     this.router.navigate(['/admin/menu/menu-restaurant/', this.id]);
   }
 

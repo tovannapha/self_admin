@@ -6,6 +6,8 @@ import { BaImageLoaderService, BaThemePreloader, BaThemeSpinner } from './theme/
 import { BaThemeConfig } from './theme/theme.config';
 import { layoutPaths } from './theme/theme.constants';
 
+import { AclGuard } from './service/acl.service';
+
 /*
  * App Component
  * Top Level Component
@@ -25,10 +27,12 @@ export class App {
   isMenuCollapsed: boolean = false;
 
   constructor(private _state: GlobalState,
-              private _imageLoader: BaImageLoaderService,
-              private _spinner: BaThemeSpinner,
-              private viewContainerRef: ViewContainerRef,
-              private themeConfig: BaThemeConfig) {
+    private _imageLoader: BaImageLoaderService,
+    private _spinner: BaThemeSpinner,
+    private viewContainerRef: ViewContainerRef,
+    private themeConfig: BaThemeConfig,
+    private aclGuard: AclGuard
+  ) {
 
     themeConfig.config();
 
@@ -37,6 +41,9 @@ export class App {
     this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
       this.isMenuCollapsed = isCollapsed;
     });
+
+    //Initial current user
+    this.aclGuard.setCurrentUser();
   }
 
   public ngAfterViewInit(): void {

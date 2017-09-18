@@ -4,26 +4,83 @@
     <img src="assets/img/theme/icon/kameleon/Man-14.svg"> ຈັດການຜູ້ໃຊ້
   </h1>
 </div>
-<br><br>
 
-<div class="horizontal-scroll">
-  <table class="table table-condensed  table-hover table-bordered" style="border-radius:5px 5px 5px 5px;" >
-    <thead>
-      <tr style="background:rgba(0,0,0,0.2);">
-        <th class="table-id">#</th>
-        <th><h3><b><i class="ion-android-share-alt"></i> ຊື່</b></h3></th>
-        <th><h3><b><i class="ion-ios-telephone"></i> ອີເມວ</b></h3></th>
-        <th><h3><b><i class="ion-android-apps"></i> ຈັດການ</b></h3></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of users; let i = index">
-        <td class="table-id">{{ i + 1 }}</td>
-        <td (click)="goToDetail(item)"  style="cursor: pointer" >{{ item.name }}</td>
-        <td>{{item.email}}</td>
-        <td><button type="button" class="btn btn-default" (click)="goToMenu()">ຈັດການຜູ້ໃຊ້</button> <button type="button" class="btn btn-danger"  data-toggle="tooltip" data-placement="top" title="ລຶບຮ້ານຜູ້ໃຊ້" (click)="deteleteRestaurant()"><i class="ion-ios-trash-outline"></i></button></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<br>
+<a class="btn btn-default no-links" data-toggle="modal" data-toggle="collapse" (click)="gotoUserAdd()">ເພີ່ມຜູ່ໃຊ້ໃໝ່</a>
+<br>
+<ul class="list-group" style="border:#fff 1px solid; ">
+  <li class="list-group-item" style="color:#2c3e50; background-color: rgba(0,0,0,0)">
+    <div class="container">
+      <div class="row">
+        <div class="col-1" style="color:#fff">
+          #
+        </div>
+        <div class="col-3" style="color:#fff">
+          <b><i class="ion-android-share-alt"></i> ຊື່</b>
+        </div>
+        <div class="col-4" style="color:#fff">
+          <b><i class="ion-ios-telephone"></i> ອີເມວ</b>
+        </div>
+        <div class="col-3" style="color:#fff">
+          <b><i class="ion-android-apps"></i> ຈັດການ</b>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item border" style="color:#2c3e50; background-color: rgba(0,0,0,0)" *ngFor="let item of users; let i = index">
+    <div class="container">
+      <div class="row">
+        <div class="col-1" style="color:#fff">
+          {{i}}
+        </div>
+        <div class="col-4" style="color:#fff">
+          {{ item.name }}
+        </div>
+        <div class="col-4" style="color:#fff">
+          {{ item.email }}
+        </div>
+        <div class="col-3">
+          <button type="button" class="btn btn-default" (click)="goToMenu()">ຈັດການຜູ້ໃຊ້</button>
+          <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="ລຶບຮ້ານຜູ້ໃຊ້" (click)="setModalFlag(i)"
+            data-toggle="modal" data-target="#exampleModal"><i class="ion-ios-trash-outline"></i></button>
+          <a class="collapsed btn btn-default no-links" data-toggle="collapse" href="#collapse-{{i}}" aria-expanded="false" aria-controls="collapseThree"><i class="ion-chevron-down"></i></a>
+        </div>
+      </div>
+    </div>
+    <br>
+    <!-- User Detail Collapse -->
+    <div id="collapse-{{i}}" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion" style="margin-top:10px;color:#fff">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+        non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+        aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+        labore sustainable VHS.
+      </div>
+    </div>
+    <!-- ###User Detail Collapse -->
 
+    <!-- Modal For confirm User Deleting -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">ທ່ານຕ້ອງການລຶບຜູ້ໃຊ້ນີ້ບໍ່?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          </div>
+          <div class="modal-body">
+            {{modalFlag}}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">ຍົກເລີກ</button>
+            <button type="button" class="btn btn-primary" (click)="deteleteUser()"  data-dismiss="modal">ຕົງລົງ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ##Modal For confirm User Deleting -->
+  </li>
+</ul>

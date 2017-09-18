@@ -50,7 +50,7 @@ export class RestaurantHomeComponent implements OnInit {
 
 
   editRestaurant(item){
-    console.log("EDIT MENU")
+    this.router.navigate(['/admin/restaurant/restaurant-edit/', item.id]);
   }
 
 

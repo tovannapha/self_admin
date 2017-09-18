@@ -1,3 +1,11 @@
+<!-- breadcrumb -->
+<div style="position:absolute;right:20px;">
+  <ol class="breadcrumb" style=" background-color:rgba(0, 0, 0, 0.3)">
+    <li class="breadcrumb-item"><a href="/#/admin/" style="color:aliceblue;">ໜ້າຫຼັກ</a></li>
+    <li class="breadcrumb-item active" style="color:aliceblue;">ເພີ່ມຮ້ານອາຫານ</li>
+  </ol>
+</div>
+
 <br>
 <div class="kameleon-icon">
   <h1>
@@ -10,57 +18,90 @@
 <form [formGroup]="restaurantAdd " novalidate>
   <div class="card">
     <div class="card-header">
-      <h3 style="color:#2c3e50"> <i class="ion-ios-paper-outline"></i>    ລາຍລະອຽດ</h3>
+      <h3 style="color:#2c3e50"> <i class="ion-ios-paper-outline"></i> ລາຍລະອຽດ</h3>
     </div>
 
-    
+
     <div class="card-body">
 
       <!-- check form validator -->
-       <pre>Form value: {{ restaurantAdd.value | json }}</pre>
+      <!--  <pre>Form value: {{ restaurantAdd.value | json }}</pre>
       <p>Name value: {{ restaurantAdd.get('name').pristine}}</p>
       <p>Name value: {{ restaurantAdd.get('name').touched}}</p>
-      <p>Form status: {{ restaurantAdd.status | json }}</p> 
-      
+      <p>Form status: {{ restaurantAdd.status | json }}</p>  -->
+
       <div class="row">
-        <div class="form-group col-sm-6 " 
-        [ngClass]="{
-          'has-error': (!restaurantAdd.get('name').valid && restaurantAdd.get('name').touched), 
-          'has-success': restaurantAdd.get('name').valid && restaurantAdd.get('name').touched}">
-          <label for="exampleInputtext1"><i class="ion-ios-wineglass"></i> ຊື່ຮ້ານ</label>
-          <input type="text" class="form-control" id="exampleInputName2" placeholder="ຊື່ຮ້ານ" formControlName="name">
+        <div class="col-sm-6">
+          <div class="form-group col-sm-12 " [ngClass]="{
+              'has-error': (!restaurantAdd.get('name').valid && restaurantAdd.get('name').touched), 
+              'has-success': restaurantAdd.get('name').valid && restaurantAdd.get('name').touched}">
+            <label for="exampleInputtext1"><i class="ion-ios-wineglass"></i> ຊື່ຮ້ານ</label>
+            <input type="text" class="form-control" id="exampleInputName2" placeholder="ຊື່ຮ້ານ" formControlName="name">
+            <div *ngIf="!restaurantAdd.get('name').valid && restaurantAdd.get('name').touched">
+              <p style="color:#e74c3c;">ກະລຸນາໃສ່ຊື່ຮ້ານ</p>
+            </div>
+          </div>
+          <div class="form-group col-sm-12">
+            <label for="exampleInputtext1"><i class="ion-ios-telephone-outline"></i>    ໂທລະສັບ</label>
+            <input type="text" class="form-control" id="exampleInputtext2" placeholder="ໂທລະສັບ" formControlName="phone">
+          </div>
         </div>
-        <div class="form-group col-sm-6">
-          <label for="exampleInputtext1">ປະເພດຮ້ານ</label>
-          <select class="form-control" id="exampleSelect1" formControlName="type">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
+
+        <div class="form-group col-sm-6 ">
+          <!-- <label for="exampleInputtext1">ປະເພດຮ້ານ</label>
+          <div *ngFor="let t of initResTypes;" class="col-md-2">
+            <button type="button" class="btn btn-default" data-dismiss="modal">ຮ້ານກິນດື່ມ{{t.name}}</button>
+          </div> -->
+          <div class="card">
+            <div class="card-header" style="color:#2c3e50">
+              <i class="ion-ios-paper-outline"></i> ປະເພດຮ້ານ
+              <button class="btn btn-default" style="position:absolute;right:10px;top:10px;font-size:x-small;" (click)="goToSetType()">ຈັດການປະເພດ</button>
+            </div>
+            <div class="card-body" style="color:#2c3e50">
+              <div class="checkbox-demo-row">
+                <div class="input-demo radio-demo row">
+                  <div class="col-md-3" *ngFor="let t of initResTypes;">
+                    <label class="radio-inline custom-radio nowrap">
+                          <input type="radio" class="form-control" id="exampleInputtext2" value="{{t.id}}" formControlName="type">
+                          <span >{{t.name}}</span>
+                        </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="form-group col-sm-6">
-          <label for="exampleInputtext1"><i class="ion-ios-telephone-outline"></i>    ໂທລະສັບ</label>
-          <input type="text" class="form-control" id="exampleInputtext2" placeholder="ໂທລະສັບ" formControlName="phone">
-        </div>
+
         <div class="form-group col-sm-12">
           <div class="card">
             <div class="card-header" style="color:#2c3e50">
-                <i class="ion-ios-paper-outline"></i>  ທີ່ຢູ່ຮ້ານ
+              <i class="ion-ios-paper-outline"></i> ທີ່ຢູ່ຮ້ານ
             </div>
             <div class="card-body  form-inline">
+              <div class="form-group col-sm-6">
+                <label for="exampleFormControlSelect1">ແຂວງ</label>
+                <select class="form-control" id="exampleFormControlSelect1" formControlName="province" (change)="provinceChange($event)">
+                            <option selected>--ເລືອກແຂວງ--</option>
+                            <option *ngFor="let a of ADDRESS;">{{a.province_name}}</option>
+                          </select>
+              </div>
+              <div class="form-group col-sm-6 magictime puffIn" *ngIf="restaurantAdd.get('province').valid ">
+                <label for="exampleFormControlSelect1">ເມືອງ</label>
+                <select class="form-control" id="exampleFormControlSelect1" formControlName="district">
+                              <option *ngFor="let d of DISTRICT.district_list;">{{d.district}}</option>
+                            </select>
+              </div>
               <div class="form-group col-sm-12">
                 <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ທີ່ຢູ່ຮ້ານ</label>
-                <input type="text" class="form-control" id="exampleInputtext2" placeholder="ທີ່ຢູ່ຮ້ານ" formControlName="address">
+                <input type="text" class="form-control" id="exampleInputtext2" placeholder="ທີ່ຢູ່ຮ້ານ" formControlName="detail">
               </div>
               <div class="form-group col-sm-6">
                 <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ເສັ້ນແວງ</label>
-                <input type="text" class="form-control" id="exampleInputtext2" placeholder="X" formControlName="location_x">
+                <input type="number" class="form-control" id="exampleInputtext2" placeholder="X" formControlName="location_x">
               </div>
               <div class="form-group col-sm-6">
                 <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ເສັ້ນຂະໜານ</label>
-                <input type="text" class="form-control" id="exampleInputtext2" placeholder="Y" formControlName="location_y">
+                <input type="number" class="form-control" id="exampleInputtext2" placeholder="Y" formControlName="location_y">
               </div>
             </div>
           </div>
@@ -69,16 +110,16 @@
         <div class="form-group col-sm-12">
           <div class="card">
             <div class="card-header">
-              <h3 style="color:#2c3e50"><i class="ion-ios-paper-outline"></i>  ຄວາມຈຸຂອງຮ້ານ</h3>
+              <h3 style="color:#2c3e50"><i class="ion-ios-paper-outline"></i> ຄວາມຈຸຂອງຮ້ານ</h3>
             </div>
             <div class="card-body  form-inline">
               <div class="form-group col-sm-6">
                 <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ໂຕະ</label>
-                <input type="text" class="form-control" id="exampleInputtext2" placeholder="ໂຕະ" formControlName="tables">
+                <input type="number" class="form-control" id="exampleInputtext2" placeholder="ໂຕະ" formControlName="tables">
               </div>
               <div class="form-group col-sm-6">
                 <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ທີ່ນັ່ງ</label>
-                <input type="text" class="form-control" id="exampleInputtext2" placeholder="ທີ່ນັ່ງ" formControlName="seats">
+                <input type="number" class="form-control" id="exampleInputtext2" placeholder="ທີ່ນັ່ງ" formControlName="seats">
               </div>
             </div>
           </div>
@@ -87,12 +128,43 @@
         <div class="form-group col-sm-12">
           <div class="card">
             <div class="card-header">
-              <h3 style="color:#2c3e50"><i class="ion-ios-paper-outline"></i>  ບ່ອນຈອດລົດ</h3>
+              <h3 style="color:#2c3e50"><i class="ion-ios-paper-outline"></i> ບ່ອນຈອດລົດ</h3>
             </div>
             <div class="card-body  form-inline">
               <div class="form-group col-sm-6">
                 <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ຈັກຄັນ</label>
-                <input type="text" class="form-control" id="exampleInputtext2" formControlName="parkinglot_capacity">
+                <input type="number" class="form-control" id="exampleInputtext2" formControlName="parkinglot_capacity">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-sm-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 style="color:#2c3e50"><i class="ion-ios-paper-outline"></i> ມື້ເປີດກິດຈະການ</h3>
+            </div>
+            <div class="card-body  form-inline">
+              <div style="padding:10px;">
+                <button type="button" class="btn btn-default" [ngClass]="{'btn-default': !CHOOSE1}" (click)="CHOOSE1= !CHOOSE1; setChooseDay('Monday')">ຈັນ</button>
+              </div>
+              <div style="padding:10px;">
+                <button type="button" class="btn btn-default" [ngClass]="{'btn-default': !CHOOSE2}" (click)="CHOOSE2= !CHOOSE2;setChooseDay('Tuesday')">ຄານ</button>
+              </div>
+              <div style="padding:10px;">
+                <button type="button" class="btn btn-default" [ngClass]="{'btn-default': !CHOOSE3}" (click)="CHOOSE3= !CHOOSE3;setChooseDay('Wenesday')">ພຸດ</button>
+              </div>
+              <div style="padding:10px;">
+                <button type="button" class="btn btn-default" [ngClass]="{'btn-default': !CHOOSE4}" (click)="CHOOSE4= !CHOOSE4;setChooseDay('Thursday')">ພະຫັດ</button>
+              </div>
+              <div style="padding:10px;">
+                <button type="button" class="btn btn-default" [ngClass]="{'btn-default': !CHOOSE5}" (click)="CHOOSE5= !CHOOSE5;setChooseDay('Friday')">ສຸກ</button>
+              </div>
+              <div style="padding:10px;">
+                <button type="button" class="btn btn-default" [ngClass]="{'btn-default': !CHOOSE6}" (click)="CHOOSE6= !CHOOSE6;setChooseDay('Saturday')">ເສົາ</button>
+              </div>
+              <div style="padding:10px;">
+                <button type="button" class="btn btn-default" [ngClass]="{'btn-default': !CHOOSE7}" (click)="CHOOSE7= !CHOOSE7;setChooseDay('Sunday')">ອາທິດ</button>
               </div>
             </div>
           </div>
@@ -102,17 +174,28 @@
         <div class="form-group col-sm-12">
           <div class="card">
             <div class="card-header">
-              <h3 style="color:#2c3e50"><i class="ion-ios-paper-outline"></i>  ຂໍ້ມູນອື່ນໆ</h3>
+              <h3 style="color:#2c3e50"><i class="ion-ios-paper-outline"></i> ຂໍ້ມູນອື່ນໆ</h3>
             </div>
             <div class="card-body  form-inline">
               <div class="form-group col-sm-6">
-                <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ມື້ເປີດກິດຈະການ</label>
-                <input type="text" class="form-control" id="exampleInputtext2" placeholder="ມື້ເປີດກິດຈະການ" formControlName="operation_days_days">
+                <!--  -->
+                <div class="input-demo radio-demo row">
+                  <div class="col-md-4">
+                    <label class="radio-inline custom-radio nowrap">
+                        <input type="radio" value="yes" formControlName="cards">
+                        <span>ໄດ້</span>
+                      </label>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="radio-inline custom-radio nowrap">
+                        <input type="radio" value="no" formControlName="cards">
+                        <span>ບໍ່ໄດ້</span>
+                      </label>
+                  </div>
+                </div>
+                <!--  -->
               </div>
-              <div class="form-group col-sm-6">
-                <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ໃຊ້ບັດເຄຼດິດໄດ້ບໍ</label>
-                <input type="text" class="form-control" id="exampleInputtext2" placeholder="X" formControlName="cards">
-              </div>
+              <br><br><br>
               <div class="form-group col-sm-12">
                 <label for="exampleInputtext1"><i class="ion-ios-paper-outline"></i>  ຈຸດພິເສດອື່ນໆ</label>
                 <input type="text" class="form-control" id="exampleInputtext2" placeholder="ຈຸດພິເສດອື່ນໆ" formControlName="feature">
@@ -124,7 +207,7 @@
         <div class="form-group col-sm-12 ">
           <div class="card" style="width:100%; ">
             <div class="card-header">
-              <h3 style="color:#2c3e50"><i class="ion-ios-paper-outline"></i>  ຮູບພາບຮ້ານອາຫານ</h3>
+              <h3 style="color:#2c3e50"><i class="ion-ios-paper-outline"></i> ຮູບພາບຮ້ານອາຫານ</h3>
             </div>
             <div class="card-body">
 
@@ -132,6 +215,10 @@
                   <i class="ion-android-image"></i> ອັບໂຫຼດຮູບພາບ
                   <input type="file" id="file_photo" style="display:none;" multiple (change)="fileChangeEvent($event)">
                 </label>
+              <div *ngIf="!Uploadable">
+                <p style="color:#e74c3c;">ກະລຸນາອັບໂຫຼດຮູບພາບ ແລະ ຕັດຮູບພາບຕາມຂະໜາດທີ່ກຳນົດ</p>
+              </div>
+
 
               <br><br>
 
@@ -161,9 +248,10 @@
 
       </div>
 
-    
+
       <div class="form-group text-center">
-        <button type="submit" class="btn btn-primary" (click)="add_restaurant()" [disabled]="!restaurantAdd.valid"><i  class="ion-android-add"></i> ເພີ່ມຮ້ານອາຫານ</button>
+        <button type="submit" class="btn btn-primary" (click)="add_restaurant()" [disabled]="(!restaurantAdd.valid) || !Uploadable"
+          data-toggle="tooltip" title="Some tooltip text!"><i  class="ion-android-add" ></i> ເພີ່ມຮ້ານອາຫານ</button>
       </div>
 
 

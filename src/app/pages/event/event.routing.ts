@@ -8,7 +8,7 @@ import { EventTypeComponent } from './event-type/event-type.component';
 const routes: Routes = [
   {
     path: '',
-    component: EventComponent,
+    //component: EventComponent,
     children: [
       { path: '', redirectTo: 'event-home', pathMatch: 'full' },
       { path: 'event-home', component: EventHomeComponent },
