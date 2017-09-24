@@ -15,8 +15,9 @@
 </div>
 <br>
 
-<a class="btn btn-default no-links" data-toggle="modal" data-toggle="collapse" href="#collapse-addacl">ເພີ່ມລະດັບໃໝ່</a>
+<a class="btn btn-default no-links border" data-toggle="modal" data-toggle="collapse" href="#collapse-addacl" style="border:#fff solid 1px;">ເພີ່ມລະດັບໃໝ່</a>
 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#addAcl" (click)="goToResourceManage()">ຈັດການ Resource</button>
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#addAcl" (click)="saveAcl()">Save</button>
 <div id="collapse-addacl" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion" style="margin-top:10px;color:#fff">
   <div class="card-body">
     <form [formGroup]="aclRoleAdd " novalidate (ngSubmit)="addAclRole(i)">
@@ -33,6 +34,10 @@
           <label for="exampleInputtext1">Role Name</label>
           <input type="text" class="form-control" id="exampleInputtext2" placeholder="Role Name" formControlName="role">
         </div>
+        <div class="form-group col-sm-6">
+          <label for="exampleInputtext1">sort</label>
+          <input type="text" class="form-control" id="exampleInputtext2" placeholder="sort" formControlName="sort">
+        </div>
         <div class="form-group col-sm-12">
           <label for="exampleInputtext1">ອະທິບາຍກ່ຽວກັບ Resources</label>
           <textarea class="form-control" id="exampleInputtext2" placeholder="ລາຍລະອຽດ" formControlName="description"></textarea>
@@ -48,24 +53,27 @@
 </div>
 <br><br>
 
+
+
 <div class="horizontal-scroll">
   <table class="table table-condensed  table-hover table-bordered  table-responsive" style="border-radius:5px 5px 5px 5px;">
     <thead>
       <tr style="background:rgba(0,0,0,0.2);">
-        <th >#</th>
-        <th *ngFor="let item of acl; let i = index">
-          <h3><b><i class="ion-android-share-alt"></i> {{item.role}}</b></h3>
+        <th>#</th>
+        <th *ngFor="let item of sortAclResources; let i = index">
+          <h4> {{item.resource_name}}</h4>
         </th>
 
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of aclResources; let i = index" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-        aria-controls="collapseExample">
-        <td >{{item.resource_name}}</td>
-        <td *ngFor="let xxx of acl; let j = index" class="text-center ">
-            <i class="ion-android-checkmark-circle " style="color:#2ecc71; font-size:2em;"></i>
-            <i class="ion-android-close" style="color:#e74c3c; font-size:2em;"></i>
+      <tr *ngFor="let item of rs ; let i = index" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <td>
+          {{sortAcl[i].role}}
+        </td>
+        <td *ngFor="let xxx of item ; let j = index" (click)="setAcl(i, j)">
+          <i class="ion-android-checkmark-circle " style="color:#2ecc71; font-size:2em;" *ngIf="xxx == sortAclResources[j].id ;else next_content"></i>
+          <ng-template #next_content><i class="ion-android-close" style="color:#e74c3c; font-size:2em;"></i></ng-template>
         </td>
       </tr>
     </tbody>
@@ -75,28 +83,6 @@
 
 
 
-
-
 <br>
 <br>
 <br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

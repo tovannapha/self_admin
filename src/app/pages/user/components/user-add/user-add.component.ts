@@ -14,6 +14,8 @@ import gql from 'graphql-tag';
 })
 export class UserAddComponent implements OnInit {
 
+  acl;
+
   name;
   fullname;
   birthday;
@@ -57,6 +59,23 @@ export class UserAddComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    const queryinfo = gql`
+    query  {
+      acls {
+        id
+        role
+      }
+    }
+  `;
+
+    this.apollo.watchQuery({
+      query: queryinfo
+    }).subscribe((x: any) => {
+      this.acl = x.data.acls
+      console.log(x.data.acls)
+    });
+
   }
 
   add_user() {

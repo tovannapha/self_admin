@@ -1,3 +1,21 @@
+<!-- Add breadcrumb -->
+<div style="position:absolute;right:20px;">
+  <ol class="breadcrumb" style=" background-color:rgba(0, 0, 0, 0.3)">
+    <li class="breadcrumb-item"><a href="/#/admin/" style="color:aliceblue;">ໜ້າຫຼັກ</a></li>
+    <li class="breadcrumb-item"><a href="/#/admin/user/user-home/" style="color:aliceblue;">ຈັດການຜູ້ໃຊ້</a></li>
+    <li class="breadcrumb-item active" style="color:aliceblue;">ເພີ່ມຜູ້ໃຊ້</li>
+  </ol>
+</div>
+
+
+<br>
+<div class="kameleon-icon">
+  <h1>
+    <img src="assets/img/theme/icon/kameleon/Man-14.svg"> ເພີ່ມຜູ້ໃຊ້
+  </h1>
+</div>
+
+
 <div class="card">
   <div class="card-header">
     <h3 style="color:#2c3e50">ລາຍລະອຽດ</h3>
@@ -23,25 +41,14 @@
         </div>
         <div class="form-group col-sm-12">
           <label for="exampleInputtext1">ລະດັບຢູເຊີ</label>
-          <input type="text" class="form-control" id="exampleInputtext2" placeholder="ລະດັບຢູເຊີ" formControlName="level">
+          <select class="form-control" id="exampleFormControlSelect1" formControlName="level">
+                                  <option selected>--ເລືອກລະດັບຢູເຊີ--</option>
+                                  <option *ngFor="let x of acl;">{{x.role}}</option>
+                                </select>
         </div>
         <div class="form-group col-sm-12">
           <label for="exampleInputtext1">ລະຫັດຜ່ານ</label>
           <input type="text" class="form-control" id="exampleInputtext2" placeholder="ລະຫັດຜ່ານ" formControlName="password">
-        </div>
-
-        <div class="form-group col-sm-12">
-          <div class="card">
-            <div class="card-header" style="color:#2c3e50">
-              ເຮັດວຽກຢູ່ຮ້ານອາຫານໃດແດ່
-            </div>
-            <div class="card-body  form-inline">
-              <div class="form-group col-sm-6">
-                <label for="exampleInputtext1">ຕຳແໜ່ງ</label>
-                <input type="text" class="form-control" id="exampleInputtext2" placeholder="ຕຳແໜ່ງ" formControlName="position">
-              </div>
-            </div>
-          </div>
         </div>
 
       </div>

@@ -1,3 +1,12 @@
+<!-- Add breadcrumb -->
+<div style="position:absolute;right:20px;">
+  <ol class="breadcrumb" style=" background-color:rgba(0, 0, 0, 0.3)">
+    <li class="breadcrumb-item"><a href="/#/admin/" style="color:aliceblue;">ໜ້າຫຼັກ</a></li>
+    <li class="breadcrumb-item active" style="color:aliceblue;">ຈັດການຜູ້ໃຊ້</li>
+  </ol>
+</div>
+
+
 <br>
 <div class="kameleon-icon">
   <h1>
@@ -6,8 +15,9 @@
 </div>
 
 <br>
-<a class="btn btn-default no-links" data-toggle="modal" data-toggle="collapse" (click)="gotoUserAdd()">ເພີ່ມຜູ່ໃຊ້ໃໝ່</a>
+<a class="btn btn-default no-links" data-toggle="modal" data-toggle="collapse" (click)="gotoUserAdd()" style="border:#fff solid 1px;">ເພີ່ມຜູ່ໃຊ້ໃໝ່</a>
 <br>
+<br><br>
 <ul class="list-group" style="border:#fff 1px solid; ">
   <li class="list-group-item" style="color:#2c3e50; background-color: rgba(0,0,0,0)">
     <div class="container">
@@ -40,9 +50,9 @@
           {{ item.email }}
         </div>
         <div class="col-3">
-          <button type="button" class="btn btn-default" (click)="goToMenu()">ຈັດການຜູ້ໃຊ້</button>
           <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="ລຶບຮ້ານຜູ້ໃຊ້" (click)="setModalFlag(i)"
             data-toggle="modal" data-target="#exampleModal"><i class="ion-ios-trash-outline"></i></button>
+          <a class="collapsed btn btn-default no-links" data-toggle="collapse" href="#collapse-edit-{{i}}" aria-expanded="false" aria-controls="collapseThree"><i class="ion-compose"></i></a>
           <a class="collapsed btn btn-default no-links" data-toggle="collapse" href="#collapse-{{i}}" aria-expanded="false" aria-controls="collapseThree"><i class="ion-chevron-down"></i></a>
         </div>
       </div>
@@ -61,6 +71,41 @@
     </div>
     <!-- ###User Detail Collapse -->
 
+    <!-- User Edit Collapse -->
+    <div id="collapse-edit-{{i}}" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+      <form [formGroup]="userEdit " novalidate>
+        <div class="row">
+          <div class="form-group col-sm-12">
+            <label for="exampleInputtext1">ຊື່ຜູ້ໃຊ້</label>
+            <input type="text" class="form-control" id="exampleInputName2" placeholder="ຊື່ຜູ້ໃຊ້" formControlName="name"  value="{{item.name}}">
+          </div>
+          <div class="form-group col-sm-12">
+            <label for="exampleInputtext1">ຊື້ແທ້ຜູ້ໃຊ້</label>
+            <input type="textarea" class="form-control" id="exampleInputtext2" placeholder="ຊື້ແທ້ຜູ້ໃຊ້" formControlName="fullname" value="{{item.fullname}}">
+          </div>
+          <div class="form-group col-sm-12">
+            <label for="exampleInputtext1">ວັນທີ່ເດືອນປີເກີດ</label>
+            <input type="text" class="form-control" id="exampleInputtext2" placeholder="ວັນທີ່ເດືອນປີເກີດ" formControlName="birthday" value="{{item.birthday}}">
+          </div>
+          <div class="form-group col-sm-12">
+            <label for="exampleInputtext1">ອີເມວ</label>
+            <input type="textarea" class="form-control" id="exampleInputtext2" placeholder="ອີເມວ" formControlName="email" value="{{item.email}}">
+          </div>
+          <div class="form-group col-sm-12">
+            <label for="exampleInputtext1">ລະດັບຢູເຊີ</label>
+            <select class="form-control" id="exampleFormControlSelect1" formControlName="level" value="{{item.level}}">
+                                    <option selected>--ເລືອກລະດັບຢູເຊີ--</option>
+                                    <option *ngFor="let x of acl;">{{x.role}}</option>
+                                  </select>
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-primary" (click)="edit_user(item)"><i  class="ion-android-add"></i> ແກ້ໄຂຂໍ້ມູນຜູ້ໃຊ້</button>
+        </div>
+      </form>
+    </div>
+    <!-- ###User Edit Collapse -->
+
     <!-- Modal For confirm User Deleting -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -76,7 +121,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">ຍົກເລີກ</button>
-            <button type="button" class="btn btn-primary" (click)="deteleteUser()"  data-dismiss="modal">ຕົງລົງ</button>
+            <button type="button" class="btn btn-primary" (click)="deteleteUser()" data-dismiss="modal">ຕົງລົງ</button>
           </div>
         </div>
       </div>

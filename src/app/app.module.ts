@@ -11,6 +11,8 @@ import { createNetworkInterface } from 'apollo-upload-client'
 import { ApolloModule } from 'apollo-angular';
 import { Apollo } from 'apollo-angular';
 
+import { NgArrayPipesModule, NgStringPipesModule, } from 'angular-pipes';
+
 /*
  * Guard Security
  */
@@ -89,7 +91,9 @@ export type StoreType = {
     NgaModule.forRoot(),
     NgbModule.forRoot(),
     PagesModule,
-    routing
+    routing,
+    NgArrayPipesModule,
+    NgStringPipesModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS,

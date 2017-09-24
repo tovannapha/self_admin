@@ -20,6 +20,7 @@ export class UserAclResourcesComponent implements OnInit {
     resource_name: new FormControl(),
     description: new FormControl(),
     code: new FormControl(),
+    sort: new FormControl(),
   });
 
   aclEdit = new FormGroup({
@@ -28,6 +29,7 @@ export class UserAclResourcesComponent implements OnInit {
     resource_name: new FormControl(),
     description: new FormControl(),
     code: new FormControl(),
+    sort: new FormControl(),
   });
 
   aclResources: any;
@@ -48,6 +50,7 @@ export class UserAclResourcesComponent implements OnInit {
       resource_name: "",
       description: "",
       code: "",
+      sort: "",
     });
 
     this.aclEdit = this.fb.group({
@@ -56,6 +59,7 @@ export class UserAclResourcesComponent implements OnInit {
       resource_name: "",
       description: "",
       code: "",
+      sort: "",
     });
   }
 
@@ -70,6 +74,7 @@ export class UserAclResourcesComponent implements OnInit {
         resource_name
         description
         code
+        sort
       }
     }
   `;
@@ -86,13 +91,14 @@ export class UserAclResourcesComponent implements OnInit {
 
   add_acl_resources() {
     const ADDACL = gql`
-        mutation ($app_name: String, $backfront: String, $resource_name: String, $description: String, $code: String ) {
+        mutation ($app_name: String, $backfront: String, $resource_name: String, $description: String, $code: String ,$sort: String ) {
           addAclResources(data:{
             app_name: $app_name,
             backfront: $backfront,
             resource_name: $resource_name,
             description: $description,
             code: $code,
+            sort: $sort,
           }) {
             app_name
           }
@@ -112,6 +118,7 @@ export class UserAclResourcesComponent implements OnInit {
         resource_name: this.aclAdd.value.resource_name,
         description: this.aclAdd.value.description,
         code: this.aclAdd.value.code,
+        sort:this.aclAdd.value.sort,
       }
 
     }).subscribe(({ data }) => {
@@ -132,20 +139,23 @@ export class UserAclResourcesComponent implements OnInit {
   }
 
   editResource(i) {
-    console.log(i)
+    
     const ADDACL = gql`
-    mutation ($id:ID, $app_name: String, $backfront: String, $resource_name: String, $description: String, $code: String ) {
+    mutation ($id:ID, $app_name: String, $backfront: String, $resource_name: String, $description: String, $code: String,$sort: String ) {
       editAclResources(id:$id  data:{
         app_name: $app_name,
         backfront: $backfront,
         resource_name: $resource_name,
         description: $description,
         code: $code,
+        sort: $sort,
       }) {
         app_name
       }
     }
   `;
+  console.log(this.aclEdit.value)
+  console.log(this.aclResources[this.editFlag].id)
 
 
     /* 
@@ -160,6 +170,7 @@ export class UserAclResourcesComponent implements OnInit {
         resource_name: this.aclEdit.value.resource_name || this.aclResources[this.editFlag].resource_name,
         description: this.aclEdit.value.description || this.aclResources[this.editFlag].description,
         code: this.aclEdit.value.code || this.aclResources[this.editFlag].code,
+        sort:this.aclEdit.value.sort|| this.aclResources[this.editFlag].sort,
       }
 
     }).subscribe(({ data }) => {

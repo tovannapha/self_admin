@@ -12,6 +12,9 @@ import { routing } from './User.routing';
 import { UserAclComponent } from './user-acl/user-acl.component';
 import { UserAclResourcesComponent } from './user-acl-resources/user-acl-resources.component';
 
+import { OrderByPipe } from 'angular-pipes/src/array/order-by.pipe';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -25,7 +28,10 @@ import { UserAclResourcesComponent } from './user-acl-resources/user-acl-resourc
     UserAddComponent,
     UserBlockComponent,
     UserAclComponent,
-    UserAclResourcesComponent
+    UserAclResourcesComponent,
+    
+    //PIPES
+    //OrderByPipe
   ]
 })
 export class UserModule {}

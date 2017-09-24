@@ -46,6 +46,10 @@
           <label for="exampleInputtext1">code</label>
           <input type="text" class="form-control" id="exampleInputtext2" placeholder="code" formControlName="code">
         </div>
+        <div class="form-group col-sm-6">
+          <label for="exampleInputtext1">sort</label>
+          <input type="text" class="form-control" id="exampleInputtext2" placeholder="code" formControlName="sort">
+        </div>
         <div class="form-group col-sm-12">
           <label for="exampleInputtext1">ອະທິບາຍກ່ຽວກັບ Resources</label>
           <textarea class="form-control" id="exampleInputtext2" placeholder="ລາຍລະອຽດ" formControlName="description"></textarea>
@@ -147,7 +151,11 @@
               </div>
               <div class="form-group col-sm-6">
                 <label for="exampleInputtext1">code</label>
-                <input type="text" class="form-control" id="exampleInputtext2" placeholder="code" formControlName="code">
+                <input type="text" class="form-control" id="exampleInputtext2" placeholder="code" formControlName="code" value="{{item.code}}">
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="exampleInputtext1">sort</label>
+                <input type="text" class="form-control" id="exampleInputtext2" placeholder="sort" formControlName="sort" value="{{item.sort}}">
               </div>
               <div class="form-group col-sm-12">
                 <label for="exampleInputtext1">ອະທິບາຍກ່ຽວກັບ Resources</label>
