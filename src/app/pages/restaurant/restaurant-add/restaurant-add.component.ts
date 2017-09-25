@@ -39,6 +39,15 @@ export class RestaurantAddComponent implements OnInit {
     province: new FormControl(),
   });
 
+  CHOOSE1:any;
+  CHOOSE2:any;
+  CHOOSE3:any;
+  CHOOSE4:any;
+  CHOOSE5:any;
+  CHOOSE6:any;
+  CHOOSE7:any;
+
+
 
   //image parameter
   imageResult: any = [];

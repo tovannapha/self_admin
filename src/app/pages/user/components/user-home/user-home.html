@@ -25,13 +25,16 @@
         <div class="col-1" style="color:#fff">
           #
         </div>
-        <div class="col-3" style="color:#fff">
+        <div class="col-4" style="color:#fff">
           <b><i class="ion-android-share-alt"></i> ຊື່</b>
         </div>
-        <div class="col-4" style="color:#fff">
+        <div class="col-3" style="color:#fff">
           <b><i class="ion-ios-telephone"></i> ອີເມວ</b>
         </div>
-        <div class="col-3" style="color:#fff">
+        <div class="col-2" style="color:#fff">
+          <b><i class="ion-ios-telephone"></i> ລະດັບຢູເຊີ</b>
+        </div>
+        <div class="col-2" style="color:#fff">
           <b><i class="ion-android-apps"></i> ຈັດການ</b>
         </div>
       </div>
@@ -46,10 +49,13 @@
         <div class="col-4" style="color:#fff">
           {{ item.name }}
         </div>
-        <div class="col-4" style="color:#fff">
+        <div class="col-3" style="color:#fff">
           {{ item.email }}
         </div>
-        <div class="col-3">
+        <div class="col-2" style="color:#fff">
+           {{ item.level }}
+        </div>
+        <div class="col-2">
           <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="ລຶບຮ້ານຜູ້ໃຊ້" (click)="setModalFlag(i)"
             data-toggle="modal" data-target="#exampleModal"><i class="ion-ios-trash-outline"></i></button>
           <a class="collapsed btn btn-default no-links" data-toggle="collapse" href="#collapse-edit-{{i}}" aria-expanded="false" aria-controls="collapseThree"><i class="ion-compose"></i></a>

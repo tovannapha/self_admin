@@ -5,6 +5,9 @@ import * as Cropper from 'cropperjs';
 
 import { LaoAddress } from '../../static_param/lao_address';
 
+
+declare var $ :any;
+
 @Component({
   selector: 'app-new',
   templateUrl: './new.component.html',
@@ -28,6 +31,10 @@ export class NewComponent implements OnInit {
     console.log(LaoAddress)
 
 
+  }
+
+  alert(){
+    $(".alert").alert()
   }
 
 

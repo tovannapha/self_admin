@@ -21,6 +21,7 @@ export class UserAclComponent implements OnInit {
   sortAcl: any = [];
   sortAclResources: any = [];
   rs: any = [];
+  rsx: any = [];
 
   aclRoleAdd = new FormGroup({
     app_name: new FormControl(),
@@ -68,6 +69,7 @@ export class UserAclComponent implements OnInit {
         id
         app_name
         backfront
+        roles
         resource_name
         description
         code
@@ -89,6 +91,11 @@ export class UserAclComponent implements OnInit {
       //init rs for 2d arrays
       this.rs = JSON.parse(JSON.stringify((new Array(this.acl.length)).fill((new Array(this.aclResources.length))
         .fill("AAA"))));
+      for (let jj = 0; jj < this.aclResources.length; jj++) {
+        this.rsx[jj] = [];
+      }
+
+
       // console.log(this.rs)
 
       //sort acl data
@@ -123,14 +130,25 @@ export class UserAclComponent implements OnInit {
       //allocate data to rs
       for (let ii = 0; ii < this.sortAcl.length; ii++) {
         for (let jj = 0; jj < this.sortAclResources.length; jj++) {
-          if(this.sortAcl[ii].resources[jj]){
+          if (this.sortAcl[ii].resources[jj]) {
             this.rs[ii][jj] = this.sortAcl[ii].resources[jj]
-          }else[
-            this.rs[ii][jj]="000"
+          } else[
+            this.rs[ii][jj] = "000"
           ]
         }
       }
 
+      //allocate data to rsx
+      for (let jj = 0; jj < this.sortAclResources.length; jj++) {
+        for (let ii = 0; ii < this.sortAcl.length; ii++) {
+          var ccc = this.sortAcl[ii].resources.indexOf(this.sortAclResources[jj].id)
+          //console.log("", this.sortAclResources[jj].resource_name, ii, ccc)
+          if (ccc > -1) {
+            this.rsx[jj].push(this.sortAcl[ii].role)
+          }
+        }
+      }
+      console.log(this.rsx)
       /* 
             console.log(this.rs)
             console.log(this.sortAclResources)
@@ -182,27 +200,56 @@ export class UserAclComponent implements OnInit {
 
 
 
-  setAcl(i, j) {
-    //aclResouces -> i
-    //acl -> j
-    //console.log("", i, j)
-    if (!this.checkFlag(i, j)) {
-      this.rs[i][j] = this.sortAclResources[j].id;
-    } else {
-      this.rs[i][j] = "0"
-    }
-  }
+  /*  setAcl(i, j) {
+     //aclResouces -> i
+     //acl -> j
+     //console.log("", i, j)
+     if (!this.checkFlag(i, j)) {
+       this.rs[i][j] = this.sortAclResources[j].id;
+     } else {
+       this.rs[i][j] = "0"
+     }
+   } */
 
-  checkFlag(i, j) {
+ /*  checkFlag(i, j) {
     //aclResouces -> i
     //acl -> j
-    console.log("i", i)
-    console.log("j", j)
+    //console.log("i", i)
+    //console.log("j", j)
 
     if (this.rs[i][j] == this.sortAclResources[j].id) return true;
     else return false
   }
+ */
 
+  setAcl(x, y, i, j) {
+    //console.log(x)
+    //console.log(y)
+    //console.log(j)
+    //console.log(this.rsx[i])
+
+    var ccc = this.rsx[i].indexOf(y.role)
+    if (ccc < 0) {
+      this.rsx[i].push(y.role)
+    } else {
+      this.rsx[i].splice(ccc,1)
+    }
+
+
+    console.log(this.rsx[i])
+    console.log(this.rs[i])
+  }
+
+  check(x, y, i, j) {
+    //console.log(i, j)
+    //console.log(j)
+    //console.log(i,this.rsx[i])
+    //console.log(y.role)
+
+    if (this.rsx[i].indexOf(y.role) > -1) return 1;
+    else return 0;
+
+  }
 
 
 
@@ -210,37 +257,39 @@ export class UserAclComponent implements OnInit {
 
 
   saveAcl() {
-    /* console.log(this.rs) */
+     console.log(this.rsx) 
 
-    for (let ii = 0; ii < this.sortAcl.length; ii++) {
-      /*  console.log(this.rs[ii])
-       console.log(this.sortAcl[ii].role) */
+    /* for (let ii = 0; ii < this.sortAcl.length; ii++) {
+     
 
 
       const EDITACL = gql`
            mutation ($id: ID , $resource: [String]) {
-             editAcl(id:$id data:{
-               resource: $resource
+             editAcl(id:$id1 data:{
+               resource: $resource1
              }) {
                app_name
              }
+
            }
          `;
       console.log(this.rs[ii])
 
-       this.apollo.mutate({
-         mutation: EDITACL,
-         variables: {
-           id: this.sortAcl[ii].id,
-           resource: this.rs[ii]
-         }
- 
-       }).subscribe(({ data }) => {
-         // 
-       });
+      this.apollo.mutate({
+        mutation: EDITACL,
+        variables: {
+          id: this.sortAcl[ii].id,
+          resource: this.rs[ii]
+        }
+
+      }).subscribe(({ data }) => {
+        // 
+      });
     }
 
-    window.location.reload();
+    window.location.reload(); */
+
+
   }
 
 

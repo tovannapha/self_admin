@@ -55,7 +55,7 @@
 
 
 
-<div class="horizontal-scroll">
+<!-- <div class="horizontal-scroll">
   <table class="table table-condensed  table-hover table-bordered  table-responsive" style="border-radius:5px 5px 5px 5px;">
     <thead>
       <tr style="background:rgba(0,0,0,0.2);">
@@ -80,9 +80,35 @@
   </table>
 </div>
 
-
+ -->
 
 
 <br>
 <br>
 <br>
+
+
+<div class="horizontal-scroll">
+  <table class="table table-condensed  table-hover table-bordered  table-responsive" style="border-radius:5px 5px 5px 5px;">
+    <thead>
+      <tr style="background:rgba(0,0,0,0.2);">
+        <th>#</th>
+        <th *ngFor="let item of sortAcl; let i = index">
+          <h4> {{item.role}}</h4>
+        </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of sortAclResources ; let i = index">
+        <td>
+          {{x.resource_name}}
+        </td>
+        <td *ngFor="let y of sortAcl ; let j = index" (click)="setAcl(x,y,i,j)">
+          <i class="ion-android-checkmark-circle " style="color:#2ecc71; font-size:2em;" *ngIf="check(x,y,i,j) ;else next_content"></i>
+          <ng-template #next_content><i class="ion-android-close" style="color:#e74c3c; font-size:2em;"></i></ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
